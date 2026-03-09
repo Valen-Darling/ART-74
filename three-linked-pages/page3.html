@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Glitch Page with Image</title>
+  <style>
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: rgb(24, 18, 18);
+      overflow: hidden;
+      animation: screenGlitch 2s infinite;
+    }
+
+    .glitch-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, red, blue, green);
+      opacity: 0.2;
+      animation: glitchMove 0.2s infinite;
+    }
+
+    .glitch-bg2 {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, blue, red, purple);
+      opacity: 0.15;
+      animation: glitchMove2 0.3s infinite;
+    }
+
+    @keyframes glitchMove {
+      0% { transform: translate(0px,0px); }
+      20% { transform: translate(-10px,5px); }
+      40% { transform: translate(10px,-5px); }
+      60% { transform: translate(-8px,4px); }
+      80% { transform: translate(8px,-4px); }
+      100% { transform: translate(0px,0px); }
+    }
+
+    @keyframes glitchMove2 {
+      0% { transform: translate(0px,0px); }
+      30% { transform: translate(6px,-6px); }
+      60% { transform: translate(-6px,6px); }
+      100% { transform: translate(0px,0px); }
+    }
+
+    .content {  
+      position: relative;   
+      left: 50%;  
+      transform: translateX(-50%);  
+      z-index: 10;  
+      color: white;  
+      text-align: center;  
+      font-size: 50px;  
+      font-family: Arial;  
+    }
+
+    .content p.small {
+      font-size: x-small;
+    }
+
+    .static {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      animation: staticFlicker 0.15s infinite;
+      z-index: 20;
+    }
+
+    @keyframes staticFlicker {
+      0% { opacity: 0.15; }
+      50% { opacity: 0.35; }
+      100% { opacity: 0.15; }
+    }
+
+    @keyframes screenGlitch {
+      0% { transform: translate(0px,0px); }
+      20% { transform: translate(-2px,1px); }
+      40% { transform: translate(2px,-1px); }
+      60% { transform: translate(-1px,2px); }
+      80% { transform: translate(1px,-2px); }
+      100% { transform: translate(0px,0px); }
+    }
+
+    /* --- Glitching Image --- */
+    .glitch-img {
+      position: relative;
+      display: block;
+      margin: 20px auto; /* centers image */
+      width: 500px; /* adjust size */
+      z-index: 10;
+    }
+
+    .glitch-img img {
+      width: 100%;
+      display: block;
+    }
+
+    .glitch-img::before,
+    .glitch-img::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/pg3.png') no-repeat center center / cover;
+      mix-blend-mode: screen;
+      animation: glitchMoveImg 0.3s infinite linear alternate-reverse;
+    }
+
+    .glitch-img::after {
+      animation-delay: 0.15s;
+    }
+
+    @keyframes glitchMoveImg {
+      0% { transform: translate(0px,0px) skew(0deg); }
+      20% { transform: translate(-5px,2px) skew(-2deg); }
+      40% { transform: translate(5px,-2px) skew(2deg); }
+      60% { transform: translate(-3px,1px) skew(-1deg); }
+      80% { transform: translate(3px,-1px) skew(1deg); }
+      100% { transform: translate(0px,0px) skew(0deg); }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="glitch-bg"></div>
+<div class="glitch-bg2"></div>
+<div class="static"></div>
+
+<div class="content">
+    <p>It's okay</p>
+    <p class="small">Please stop...</p>
+</div>
+
+<!-- Glitching Image -->
+<div class="glitch-img">
+    <img src="images/pg3.png" alt="Glitch Image">
+</div>
+
+</body>
+</html>
