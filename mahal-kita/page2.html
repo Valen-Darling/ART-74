@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>Mahal Kita</title>
+<title>Mahal Kita - Page 2</title>
 
 <style>
-
 body{
     background-color: pink;
     margin: 0;
@@ -16,7 +14,7 @@ body{
 .match{
     text-align: center;
     font-size: 26px;
-    margin-top: 70px;
+    margin-top: 50px;
     opacity: 0;
     animation: fadeIn 1.5s forwards;
 }
@@ -24,28 +22,26 @@ body{
 /* Chat container */
 .chat{
     width: 320px;
-    margin: 60px auto;
-    padding-bottom: 250px; /* leave space for keyboard + text bar */
+    margin: 20px auto;
+    padding-bottom: 250px; /* space for keyboard + input bar */
 }
 
-/* Message bubbles */
-.bubble-left{
-    background-color: white;
+/* Bubbles */
+.bubble-left, .bubble-right{
     padding: 10px 14px;
     border-radius: 20px;
     width: fit-content;
     margin-bottom: 12px;
     opacity: 0;
+}
+
+.bubble-left{
+    background-color: white;
 }
 
 .bubble-right{
     background-color: #ffd6e7;
-    padding: 10px 14px;
-    border-radius: 20px;
-    width: fit-content;
     margin-left: auto;
-    margin-bottom: 12px;
-    opacity: 0;
 }
 
 .bubble-right a{
@@ -53,33 +49,23 @@ body{
     color: black;
 }
 
-/* Animations */
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-.typing{
-    animation: fadeIn 1s forwards, disappear 0.5s forwards;
-    animation-delay: 2s, 4.5s;
-}
-
-.hi{
-    animation: fadeIn 1s forwards;
-    animation-delay: 5s;
-}
-
-.hello{
-    animation: fadeIn 1s forwards;
-    animation-delay: 7s;
-}
-
-/* Typing dots */
+/* Typing dots container */
 .typing-dots{
     display: flex;
     gap: 5px;
+    opacity: 0;
+    margin-bottom: 5px;
 }
 
+.typing-dots-left{
+    justify-content: flex-start;
+}
+
+.typing-dots-right{
+    justify-content: flex-end;
+}
+
+/* Dots animation */
 .dot{
     width: 7px;
     height: 7px;
@@ -88,37 +74,43 @@ body{
     animation: bounce 1s infinite;
 }
 
-.dot:nth-child(2){
-    animation-delay: 0.2s;
-}
-
-.dot:nth-child(3){
-    animation-delay: 0.4s;
-}
+.dot:nth-child(2){ animation-delay: 0.2s; }
+.dot:nth-child(3){ animation-delay: 0.4s; }
 
 @keyframes bounce{
     0%, 80%, 100%{ transform: translateY(0); }
     40%{ transform: translateY(-5px); }
 }
 
-@keyframes disappear{
-    to{ opacity:0; }
+/* Insert text in middle */
+.insert-text{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+    opacity: 0;
 }
 
-/* Keyboard container */
+/* Fade-in animation */
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* Pastel pink keyboard */
 .keyboard{
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #ffc0cb; /* pastel pink */
+    background-color: #ffc0cb;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
     border-top: 1px solid #ffb6c1;
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 8px 0;
+    gap: 5px;
+    padding: 5px 0;
 }
 
 /* Text bar inside keyboard */
@@ -145,7 +137,7 @@ body{
     border-radius: 6px;
     padding: 8px 12px;
     font-size: 14px;
-    cursor: default; /* just for display, not interactive */
+    cursor: default;
 }
 
 .key:hover{
@@ -157,38 +149,106 @@ body{
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="match">
-You got a match!
-</div>
+<div class="match">You got a match!</div>
 
 <div class="chat">
 
-<div class="bubble-left typing">
-<div class="typing-dots">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<!-- Message 1 -->
+<div class="typing-dots typing-dots-left" id="dots1">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
 </div>
+<div class="bubble-left" id="msg1">Hi</div>
+
+<!-- Message 2 -->
+<div class="typing-dots typing-dots-right" id="dots2">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg2">Hello</div>
+
+<div class="typing-dots typing-dots-left" id="dots3">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg3">How are you?</div>
+
+<div class="typing-dots typing-dots-right" id="dots4">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg4">Doing okay, yourself?</div>
+
+<div class="typing-dots typing-dots-left" id="dots5">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg5">Okay as well</div>
+
+<div class="insert-text" id="insert">7 hours later</div>
+
+<div class="typing-dots typing-dots-right" id="dots6">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg6">Are you usually this dry? :b</div>
+
+<div class="typing-dots typing-dots-left" id="dots7">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg7">Sorry, work's been pretty busy haha</div>
+
+<div class="typing-dots typing-dots-right" id="dots8">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg8">So what are you down to do?</div>
+
+<div class="typing-dots typing-dots-left" id="dots9">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg9">We can hang at the mall nearby your area, I can come after work</div>
+
+<div class="typing-dots typing-dots-right" id="dots10">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg10">Sounds good! ^^</div>
+
+<div class="typing-dots typing-dots-left" id="dots11">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg11">Okay! See you then</div>
+
+<div class="typing-dots typing-dots-right" id="dots12">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg12"><a href="page3.html">See you soon silent boy :b</a></div>
+
 </div>
 
-<div class="bubble-left hi">
-Hi!
-</div>
-
-<div class="bubble-right hello">
-<a href="page3.html">Hello</a>
-</div>
-
-</div>
-
-<!-- Keyboard and text bar -->
+<!-- Keyboard + input bar -->
 <div class="keyboard">
-
   <div class="input-bar">(Click on the pink text to proceed)</div>
 
   <!-- QWERTY keyboard -->
@@ -228,9 +288,47 @@ Hi!
   <div class="key-row">
     <button class="key space">SPACE</button>
   </div>
-
 </div>
 
-</body>
+<script>
+// Show typing dots and then message sequentially
+const messages = [
+  {dots:'dots1', msg:'msg1'},
+  {dots:'dots2', msg:'msg2'},
+  {dots:'dots3', msg:'msg3'},
+  {dots:'dots4', msg:'msg4'},
+  {dots:'dots5', msg:'msg5'},
+  {insert:'insert', delay:1000},
+  {dots:'dots6', msg:'msg6'},
+  {dots:'dots7', msg:'msg7'},
+  {dots:'dots8', msg:'msg8'},
+  {dots:'dots9', msg:'msg9'},
+  {dots:'dots10', msg:'msg10'},
+  {dots:'dots11', msg:'msg11'},
+  {dots:'dots12', msg:'msg12'},
+];
 
+let delay = 1000;
+
+messages.forEach(item => {
+  if(item.insert){
+    setTimeout(()=>{
+      document.getElementById(item.insert).style.opacity = 1;
+    }, delay);
+    delay += 1500;
+  } else {
+    setTimeout(()=>{
+      document.getElementById(item.dots).style.opacity = 1;
+    }, delay);
+    delay += 1000;
+    setTimeout(()=>{
+      document.getElementById(item.dots).style.opacity = 0;
+      document.getElementById(item.msg).style.opacity = 1;
+    }, delay);
+    delay += 1000;
+  }
+});
+</script>
+
+</body>
 </html>
