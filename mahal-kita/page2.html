@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Mahal Kita</title>
+
+<style>
+
+body{
+    background-color: pink;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+/* "You got a match!" text */
+.match{
+    text-align: center;
+    font-size: 26px;
+    margin-top: 70px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+/* Chat container */
+.chat{
+    width: 320px;
+    margin: 60px auto;
+    padding-bottom: 250px; /* leave space for keyboard + text bar */
+}
+
+/* Message bubbles */
+.bubble-left{
+    background-color: white;
+    padding: 10px 14px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 12px;
+    opacity: 0;
+}
+
+.bubble-right{
+    background-color: #ffd6e7;
+    padding: 10px 14px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-bottom: 12px;
+    opacity: 0;
+}
+
+.bubble-right a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Animations */
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.typing{
+    animation: fadeIn 1s forwards, disappear 0.5s forwards;
+    animation-delay: 2s, 4.5s;
+}
+
+.hi{
+    animation: fadeIn 1s forwards;
+    animation-delay: 5s;
+}
+
+.hello{
+    animation: fadeIn 1s forwards;
+    animation-delay: 7s;
+}
+
+/* Typing dots */
+.typing-dots{
+    display: flex;
+    gap: 5px;
+}
+
+.dot{
+    width: 7px;
+    height: 7px;
+    background: gray;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+
+.dot:nth-child(2){
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3){
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce{
+    0%, 80%, 100%{ transform: translateY(0); }
+    40%{ transform: translateY(-5px); }
+}
+
+@keyframes disappear{
+    to{ opacity:0; }
+}
+
+/* Keyboard container */
+.keyboard{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffc0cb; /* pastel pink */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    border-top: 1px solid #ffb6c1;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+/* Text bar inside keyboard */
+.input-bar{
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px 15px;
+    width: 80%;
+    color: gray;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Keyboard keys */
+.key-row{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.key{
+    background-color: #ffe6f0;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: default; /* just for display, not interactive */
+}
+
+.key:hover{
+    background-color: #ffd1e3;
+}
+
+.space{
+    width: 220px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="match">
+You got a match!
+</div>
+
+<div class="chat">
+
+<div class="bubble-left typing">
+<div class="typing-dots">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+</div>
+
+<div class="bubble-left hi">
+Hi!
+</div>
+
+<div class="bubble-right hello">
+<a href="page3.html">Hello</a>
+</div>
+
+</div>
+
+<!-- Keyboard and text bar -->
+<div class="keyboard">
+
+  <div class="input-bar">(Click on the pink text to proceed)</div>
+
+  <!-- QWERTY keyboard -->
+  <div class="key-row">
+    <button class="key">Q</button>
+    <button class="key">W</button>
+    <button class="key">E</button>
+    <button class="key">R</button>
+    <button class="key">T</button>
+    <button class="key">Y</button>
+    <button class="key">U</button>
+    <button class="key">I</button>
+    <button class="key">O</button>
+    <button class="key">P</button>
+  </div>
+  <div class="key-row">
+    <button class="key">A</button>
+    <button class="key">S</button>
+    <button class="key">D</button>
+    <button class="key">F</button>
+    <button class="key">G</button>
+    <button class="key">H</button>
+    <button class="key">J</button>
+    <button class="key">K</button>
+    <button class="key">L</button>
+  </div>
+  <div class="key-row">
+    <button class="key">Z</button>
+    <button class="key">X</button>
+    <button class="key">C</button>
+    <button class="key">V</button>
+    <button class="key">B</button>
+    <button class="key">N</button>
+    <button class="key">M</button>
+    <button class="key">⌫</button>
+  </div>
+  <div class="key-row">
+    <button class="key space">SPACE</button>
+  </div>
+
+</div>
+
+</body>
+
+</html>
