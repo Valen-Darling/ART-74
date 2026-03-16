@@ -12,7 +12,7 @@ font-family:Arial, sans-serif;
 color:white;
 }
 
-/* Title */
+
 
 .title{
 text-align:center;
@@ -23,14 +23,14 @@ opacity:0;
 transition:opacity 2s;
 }
 
-/* Chat container */
+
 
 .chat{
 width:340px;
 margin:60px auto;
 }
 
-/* Speech bubbles */
+
 
 .bubble-left,
 .bubble-right{
@@ -43,14 +43,14 @@ transition:opacity 1.5s ease;
 font-size:18px;
 }
 
-/* Blue bubble */
+
 
 .bubble-left{
 background:#3b82f6;
 color:white;
 }
 
-/* Purple bubble */
+
 
 .bubble-right{
 background:#c8a2ff;
@@ -58,7 +58,7 @@ color:black;
 margin-left:auto;
 }
 
-/* Link bubble */
+
 
 .bubble-right a{
 color:black;
@@ -66,7 +66,7 @@ text-decoration:none;
 display:block;
 }
 
-/* Instruction text */
+
 
 .insert{
 text-align:center;
@@ -113,7 +113,7 @@ Click on the purple text to proceed
 
 <script>
 
-/* Title animation */
+
 
 setTimeout(()=>{
 document.getElementById("title").style.opacity=1;
@@ -124,7 +124,7 @@ document.getElementById("title").style.opacity=0;
 },3500);
 
 
-/* Dialogue sequence */
+
 
 const lines=[
 "l1","l2","l3","l4","l5","l6","l7","l8","l9","l10","l11","l12","l13"
@@ -148,7 +148,7 @@ delay+=700;
 
 });
 
-/* Final bubble stays */
+
 
 setTimeout(()=>{
 document.getElementById("l14").style.opacity=1;
