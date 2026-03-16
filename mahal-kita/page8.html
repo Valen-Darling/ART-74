@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mahal Kita - Page 7</title>
+
+<style>
+
+body{
+background-color: pink;
+margin:0;
+font-family: Arial, sans-serif;
+}
+
+/* Top text */
+
+.match{
+text-align:center;
+font-size:30px;
+font-family:"Brush Script MT", cursive;
+margin-top:50px;
+opacity:0;
+animation:fadeIn 1.5s forwards;
+}
+
+/* Insert text */
+
+.insert{
+text-align:center;
+font-size:13px;
+font-style:italic;
+color:#444;
+margin:10px 30px 20px 30px;
+}
+
+/* Chat container */
+
+.chat{
+width:320px;
+margin:20px auto;
+padding-bottom:250px;
+}
+
+/* Bubbles */
+
+.bubble-left,
+.bubble-right{
+padding:10px 14px;
+border-radius:20px;
+width:fit-content;
+margin-bottom:12px;
+opacity:0;
+max-width:240px;
+}
+
+.bubble-left{
+background:white;
+}
+
+.bubble-right{
+background:#ffd6e7;
+margin-left:auto;
+}
+
+.bubble-right a{
+text-decoration:none;
+color:black;
+display:block;
+}
+
+/* Typing dots */
+
+.typing-dots{
+display:flex;
+gap:5px;
+opacity:0;
+margin-bottom:5px;
+}
+
+.typing-dots-left{
+justify-content:flex-start;
+}
+
+.typing-dots-right{
+justify-content:flex-end;
+}
+
+.dot{
+width:7px;
+height:7px;
+background:gray;
+border-radius:50%;
+animation:bounce 1s infinite;
+}
+
+.dot:nth-child(2){animation-delay:0.2s;}
+.dot:nth-child(3){animation-delay:0.4s;}
+
+@keyframes bounce{
+0%,80%,100%{transform:translateY(0);}
+40%{transform:translateY(-5px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* Keyboard */
+
+.keyboard{
+position:fixed;
+bottom:0;
+width:100%;
+background-color:#d63384;
+box-shadow:0 -2px 10px rgba(0,0,0,0.2);
+border-top:1px solid #b02a6f;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:5px;
+padding:5px 0;
+z-index:10;
+}
+
+/* Text bar */
+
+.input-bar{
+background:white;
+border-radius:25px;
+padding:10px 15px;
+width:80%;
+color:gray;
+font-size:14px;
+text-align:center;
+}
+
+/* Keyboard */
+
+.key-row{
+display:flex;
+justify-content:center;
+gap:5px;
+}
+
+.key{
+background:#ffb3d1;
+border:none;
+border-radius:6px;
+padding:8px 12px;
+font-size:14px;
+}
+
+.space{
+width:220px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="match">6 Months Later...</div>
+
+<div class="insert">
+For context, I was staying over at a friend's house near Sacramento, where there was an event with different Christmas lights. My boyfriend's family invited me to join them to that event, so they were going to pick me up from where I was before heading to Sacramento.
+</div>
+
+<div class="chat">
+
+<div class="typing-dots typing-dots-right" id="dots1">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg1">
+I can't wait for you to see the outfit I prepared! I'm so excited!! 🤭
+</div>
+
+<div class="typing-dots typing-dots-left" id="dots2">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg2">
+Same here! My parents are almost done getting ready
+</div>
+
+<div class="typing-dots typing-dots-right" id="dots3">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg3">
+Thank you guys again for inviting me! It really means a lot that your parents offered me to join you guys 🥹💞
+</div>
+
+<div class="typing-dots typing-dots-left" id="dots4">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg4">
+It's no problem! My mom does like you a lot
+</div>
+
+<div class="typing-dots typing-dots-right" id="dots5">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg5">
+Don't lie to me! ToT I still feel like I could do better to impress your parents...
+</div>
+
+<div class="typing-dots typing-dots-left" id="dots6">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg6">
+They already love you, they love that their son finally found someone who's able to handle him 🤣 jkjk
+</div>
+
+<div class="typing-dots typing-dots-right" id="dots7">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg7">
+Aish! I just don't want to make an embarrassment of myself TT
+</div>
+
+<div class="typing-dots typing-dots-left" id="dots8">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg8">
+You won't, trust me. I know you, and they would love you just for being yourself
+</div>
+
+<div class="typing-dots typing-dots-right" id="dots9">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg9">
+Cheesy :b
+</div>
+
+<div class="typing-dots typing-dots-left" id="dots10">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg10">
+Well, you do sometimes love the cheesiness 😙
+</div>
+
+<div class="typing-dots typing-dots-right" id="dots11">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg11">
+Haha, you're right. Well let me know when you're close to the area! Just so I could get all my stuff ready
+</div>
+
+<div class="typing-dots typing-dots-left" id="dots12">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-left" id="msg12">
+Okay, I'll see you soon. I love you 💞
+</div>
+
+<div class="typing-dots typing-dots-right" id="dots13">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg13">
+<a href="page9.html">I love you too, my love 💞✨</a>
+</div>
+
+</div>
+
+<div class="keyboard">
+
+<div class="input-bar">
+(Click on the pink text to proceed)
+</div>
+
+<div class="key-row">
+<button class="key">Q</button>
+<button class="key">W</button>
+<button class="key">E</button>
+<button class="key">R</button>
+<button class="key">T</button>
+<button class="key">Y</button>
+<button class="key">U</button>
+<button class="key">I</button>
+<button class="key">O</button>
+<button class="key">P</button>
+</div>
+
+<div class="key-row">
+<button class="key">A</button>
+<button class="key">S</button>
+<button class="key">D</button>
+<button class="key">F</button>
+<button class="key">G</button>
+<button class="key">H</button>
+<button class="key">J</button>
+<button class="key">K</button>
+<button class="key">L</button>
+</div>
+
+<div class="key-row">
+<button class="key">Z</button>
+<button class="key">X</button>
+<button class="key">C</button>
+<button class="key">V</button>
+<button class="key">B</button>
+<button class="key">N</button>
+<button class="key">M</button>
+<button class="key">⌫</button>
+</div>
+
+<div class="key-row">
+<button class="key space">SPACE</button>
+</div>
+
+</div>
+
+<script>
+
+const messages=[
+{dots:'dots1',msg:'msg1'},
+{dots:'dots2',msg:'msg2'},
+{dots:'dots3',msg:'msg3'},
+{dots:'dots4',msg:'msg4'},
+{dots:'dots5',msg:'msg5'},
+{dots:'dots6',msg:'msg6'},
+{dots:'dots7',msg:'msg7'},
+{dots:'dots8',msg:'msg8'},
+{dots:'dots9',msg:'msg9'},
+{dots:'dots10',msg:'msg10'},
+{dots:'dots11',msg:'msg11'},
+{dots:'dots12',msg:'msg12'},
+{dots:'dots13',msg:'msg13'}
+];
+
+let delay=1000;
+
+messages.forEach(item=>{
+
+setTimeout(()=>{
+document.getElementById(item.dots).style.opacity=1;
+},delay);
+
+delay+=1000;
+
+setTimeout(()=>{
+document.getElementById(item.dots).style.opacity=0;
+document.getElementById(item.msg).style.opacity=1;
+},delay);
+
+delay+=1000;
+
+});
+
+</script>
+
+</body>
+</html>
