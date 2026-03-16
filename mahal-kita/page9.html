@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mahal Kita - Page 9</title>
+
+<style>
+body {
+    background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Top text */
+.match {
+    text-align: center;
+    font-size: 30px;
+    font-family: "Brush Script MT", cursive;
+    margin-top: 50px;
+    color: white;
+    opacity: 0;
+}
+
+/* Insert text */
+.insert {
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+    color: #ddd;
+    margin: 10px 30px 20px 30px;
+    opacity: 0;
+}
+
+/* Chat container */
+.chat {
+    width: 320px;
+    margin: 20px auto;
+    padding-bottom: 50px;
+}
+
+/* Bubbles */
+.bubble-left,
+.bubble-right {
+    padding: 10px 14px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 12px;
+    opacity: 0;
+    max-width: 240px;
+    transition: opacity 1s ease;
+}
+
+/* Swap colors: left=blue, right=purple */
+.bubble-left {
+    background-color: #3b82f6; /* blue */
+    color: white;
+}
+
+.bubble-right {
+    background-color: #c8a2ff; /* pastel purple */
+    color: black;
+    margin-left: auto;
+}
+
+/* Final instruction insert */
+.final-insert {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    color: #ddd;
+    margin: 10px 20px 30px 20px;
+    opacity: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="match" id="header">7 Months Later...</div>
+
+<div class="insert" id="insert">Set in the Las Vegas Strip, a few minutes before the New Year's countdown.</div>
+
+<div class="chat">
+    <div class="bubble-left" id="msg1">...It's almost time</div>
+    <div class="bubble-right" id="msg2">I know...</div>
+    <div class="bubble-left" id="msg3">A lot has happened in the past few weeks...both good and bad</div>
+    <div class="bubble-right" id="msg4">Mhmm...</div>
+    <div class="bubble-left" id="msg5">But hey, I'm glad that I'm ending the year, and starting 2026 with you</div>
+    <div class="bubble-right" id="msg6">Honestly, same here. I'm so happy I get to spend New Year's with you.</div>
+    <div class="bubble-left" id="msg7">Are you ready to face this new adventure?</div>
+    <div class="bubble-right" id="msg8">...as long as it's with you</div>
+    <div class="bubble-left" id="msg9">...</div>
+    <div class="bubble-right" id="msg10">...</div>
+    <div class="bubble-left" id="msg11">I love you</div>
+    <div class="bubble-right" id="msg12"><a href="page10.html" style="text-decoration:none; color:black;">I love you too, my love</a></div>
+</div>
+
+<div class="final-insert" id="final-insert">Click on the last purple text to proceed</div>
+
+<script>
+const header = document.getElementById("header");
+const insert = document.getElementById("insert");
+const finalInsert = document.getElementById("final-insert");
+
+const messages = [
+    'msg1','msg2','msg3','msg4','msg5','msg6','msg7','msg8','msg9','msg10','msg11','msg12'
+];
+
+let delay = 500; // initial delay
+
+// Fade in header
+setTimeout(() => {
+    header.style.opacity = 1;
+}, delay);
+
+delay += 1500; // wait 1.5s before showing insert text
+
+// Fade in insert text
+setTimeout(() => {
+    insert.style.opacity = 1;
+}, delay);
+
+delay += 1500; // wait 1.5s before showing chat
+
+// Fade in chat bubbles one by one
+messages.forEach(id => {
+    setTimeout(() => {
+        document.getElementById(id).style.opacity = 1;
+    }, delay);
+    delay += 1500;
+});
+
+// Fade in final instruction after last bubble
+setTimeout(() => {
+    finalInsert.style.opacity = 1;
+}, delay);
+</script>
+
+</body>
+</html>

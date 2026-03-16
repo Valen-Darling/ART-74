@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Countdown 2026</title>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+#countdown {
+    font-size: 80px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#happy {
+    font-size: 100px;
+    color: #FFD700;
+    opacity: 0;
+    margin-top: 20px;
+    text-align: center;
+    transition: opacity 1s ease;
+}
+</style>
+</head>
+<body>
+
+<div id="countdown">10</div>
+<div id="happy">HAPPY 2026!</div>
+
+<script>
+const countdownEl = document.getElementById('countdown');
+const happyEl = document.getElementById('happy');
+
+let number = 10;
+
+function showNextNumber() {
+    if (number > 0) {
+        countdownEl.textContent = number;
+        countdownEl.style.opacity = 1;
+        setTimeout(() => {
+            countdownEl.style.opacity = 0;
+            number--;
+            setTimeout(showNextNumber, 500); // fade out before next number
+        }, 1000); // number visible for 1s
+    } else {
+        // Show "HAPPY 2026!"
+        happyEl.style.opacity = 1;
+
+        // Redirect to page11.html after 2 seconds
+        setTimeout(() => {
+            window.location.href = "page11.html";
+        }, 2000);
+    }
+}
+
+// Start countdown
+showNextNumber();
+</script>
+
+</body>
+</html>
