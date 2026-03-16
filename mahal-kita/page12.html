@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mahal Kita - Page 11</title>
+<title>Mahal Kita - Page 12</title>
 
 <style>
 
 body{
-background-color: pink;
+background-color:black;
 margin:0;
 font-family: Arial, sans-serif;
+color:white;
 }
 
 /* Top text */
@@ -20,6 +21,20 @@ font-family:"Brush Script MT", cursive;
 margin-top:50px;
 opacity:0;
 animation:fadeIn 1.5s forwards;
+color:white;
+}
+
+/* Insert text */
+
+.insert{
+text-align:center;
+font-size:13px;
+font-style:italic;
+color:#bbb;
+margin:10px 30px 20px 30px;
+opacity:0;
+animation:fadeIn 1s forwards;
+animation-delay:2s;
 }
 
 /* Chat container */
@@ -30,7 +45,7 @@ margin:20px auto;
 padding-bottom:250px;
 }
 
-/* Bubbles */
+/* Chat bubbles */
 
 .bubble-left,
 .bubble-right{
@@ -43,11 +58,13 @@ max-width:240px;
 }
 
 .bubble-left{
-background:white;
+background:#3b82f6;
+color:white;
 }
 
 .bubble-right{
-background:#ffd6e7;
+background:#c8a2ff;
+color:black;
 margin-left:auto;
 }
 
@@ -101,9 +118,9 @@ to{opacity:1;}
 position:fixed;
 bottom:0;
 width:100%;
-background-color:#d63384;
-box-shadow:0 -2px 10px rgba(0,0,0,0.2);
-border-top:1px solid #b02a6f;
+background-color:#2b2b2b;
+box-shadow:0 -2px 10px rgba(0,0,0,0.5);
+border-top:1px solid #444;
 display:flex;
 flex-direction:column;
 align-items:center;
@@ -115,16 +132,16 @@ z-index:10;
 /* Text bar */
 
 .input-bar{
-background:white;
+background:#444;
 border-radius:25px;
 padding:10px 15px;
 width:80%;
-color:gray;
+color:white;
 font-size:14px;
 text-align:center;
 }
 
-/* Keyboard */
+/* Keyboard rows */
 
 .key-row{
 display:flex;
@@ -133,11 +150,12 @@ gap:5px;
 }
 
 .key{
-background:#ffb3d1;
+background:#6b6b6b;
 border:none;
 border-radius:6px;
 padding:8px 12px;
 font-size:14px;
+color:white;
 }
 
 .space{
@@ -149,116 +167,79 @@ width:220px;
 
 <body>
 
-<div class="match">8 Months Later...</div>
+<div class="match">9 Months Later...</div>
+
+<div class="insert">
+For context, before this conversation, we had a massive argument that led to us getting REALLY emotional.
+</div>
 
 <div class="chat">
 
 <div class="typing-dots typing-dots-left" id="dots1">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg1">
-Who's ready to get their ass beaten at Round1 again?
-</div>
+<div class="bubble-left" id="msg1">I'm really sorry...</div>
 
 <div class="typing-dots typing-dots-right" id="dots2">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg2">
-You mean are YOU ready to lose to ME? &gt;:D
-</div>
+<div class="bubble-right" id="msg2">You know what you did REALLY hurt me, right?</div>
 
 <div class="typing-dots typing-dots-left" id="dots3">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg3">
-Says the one who lost to me in air hockey five times...
-</div>
+<div class="bubble-left" id="msg3">I know, I wasn't thinking</div>
 
 <div class="typing-dots typing-dots-right" id="dots4">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg4">
-Shhhhh~
-</div>
+<div class="bubble-right" id="msg4">We've talked about this...</div>
 
 <div class="typing-dots typing-dots-left" id="dots5">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg5">
-Aaaand I also beat you in Connect4 four times, pun not intended
-</div>
+<div class="bubble-left" id="msg5">I'm really sorry</div>
 
-<div class="typing-dots typing-dots-right" id="dots6">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="typing-dots typing-dots-left" id="dots6">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg6">
-Wellll you need to get ready to lose again 🙂‍↕️
-</div>
+<div class="bubble-left" id="msg6">I mean it</div>
 
-<div class="typing-dots typing-dots-left" id="dots7">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="typing-dots typing-dots-right" id="dots7">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg7">
-Sure, whatever you say love 🤣
-</div>
+<div class="bubble-right" id="msg7">...</div>
 
 <div class="typing-dots typing-dots-right" id="dots8">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg8">
-Oh! How did you wanna match for our 8 months? :0
-</div>
+<div class="bubble-right" id="msg8">I know...</div>
 
-<div class="typing-dots typing-dots-left" id="dots9">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="typing-dots typing-dots-right" id="dots9">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg9">
-Well since you got a new PSG shirt from our trip, we could do a sports date and just match football shirts
-</div>
+<div class="bubble-right" id="msg9">I just need time to process this whole thing</div>
 
-<div class="typing-dots typing-dots-right" id="dots10">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="typing-dots typing-dots-left" id="dots10">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg10">
-Sounds good to me! ^^
-</div>
+<div class="bubble-left" id="msg10">Could you meet up after work? I want to make it up to you and talk about this</div>
 
-<div class="typing-dots typing-dots-left" id="dots11">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="typing-dots typing-dots-right" id="dots11">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg11">
-Awesome, I'm going to head into work, I'll text you when I clock out! I'll pick you up afterwards, I love you 💞
-</div>
+<div class="bubble-right" id="msg11">Sure</div>
 
-<div class="typing-dots typing-dots-right" id="dots12">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+<div class="typing-dots typing-dots-left" id="dots12">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg12">
-<a href="page12.html">I love you too, my love 💞✨</a>
+<div class="bubble-left" id="msg12">Okay, I'll see you tomorrow then?</div>
+
+<div class="typing-dots typing-dots-right" id="dots13">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
+</div>
+<div class="bubble-right" id="msg13">
+<a href="page13.html">See you.</a>
 </div>
 
 </div>
@@ -266,7 +247,7 @@ Awesome, I'm going to head into work, I'll text you when I clock out! I'll pick 
 <div class="keyboard">
 
 <div class="input-bar">
-(Click on the pink text to proceed)
+Click on the last purple text to proceed
 </div>
 
 <div class="key-row">
@@ -325,7 +306,8 @@ const messages=[
 {dots:'dots9',msg:'msg9'},
 {dots:'dots10',msg:'msg10'},
 {dots:'dots11',msg:'msg11'},
-{dots:'dots12',msg:'msg12'}
+{dots:'dots12',msg:'msg12'},
+{dots:'dots13',msg:'msg13'}
 ];
 
 let delay=1000;

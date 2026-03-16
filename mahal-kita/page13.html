@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mahal Kita - Page 13</title>
+
+<style>
+
+body{
+background:black;
+margin:0;
+font-family:Arial, sans-serif;
+color:white;
+}
+
+/* Title */
+
+.title{
+text-align:center;
+font-family:"Brush Script MT", cursive;
+font-size:34px;
+margin-top:80px;
+opacity:0;
+transition:opacity 2s;
+}
+
+/* Chat container */
+
+.chat{
+width:340px;
+margin:60px auto;
+}
+
+/* Speech bubbles */
+
+.bubble-left,
+.bubble-right{
+padding:12px 16px;
+border-radius:20px;
+max-width:240px;
+margin:14px 0;
+opacity:0;
+transition:opacity 1.5s ease;
+font-size:18px;
+}
+
+/* Blue bubble */
+
+.bubble-left{
+background:#3b82f6;
+color:white;
+}
+
+/* Purple bubble */
+
+.bubble-right{
+background:#c8a2ff;
+color:black;
+margin-left:auto;
+}
+
+/* Link bubble */
+
+.bubble-right a{
+color:black;
+text-decoration:none;
+display:block;
+}
+
+/* Instruction text */
+
+.insert{
+text-align:center;
+font-size:14px;
+color:#bbb;
+margin-top:40px;
+opacity:0;
+transition:opacity 1.5s;
+font-style:italic;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="title" id="title">the next day...</div>
+
+<div class="chat">
+
+<div class="bubble-left" id="l1">Hey...</div>
+<div class="bubble-right" id="l2">Hey...</div>
+<div class="bubble-left" id="l3">...are you okay?</div>
+<div class="bubble-right" id="l4">Kind of...you?</div>
+<div class="bubble-left" id="l5">No, I'm not...</div>
+<div class="bubble-left" id="l6">I did hurt you, and I can't take that back</div>
+<div class="bubble-right" id="l7">I know...</div>
+<div class="bubble-left" id="l8">...</div>
+<div class="bubble-right" id="l9">...</div>
+<div class="bubble-right" id="l10">...do you still want us?</div>
+<div class="bubble-left" id="l11">I do, I still care about us</div>
+<div class="bubble-left" id="l12">I'm willing to do anything to work through this</div>
+<div class="bubble-left" id="l13">What about you?</div>
+
+<div class="bubble-right" id="l14">
+<a href="page14.html">...</a>
+</div>
+
+</div>
+
+<div class="insert" id="insert">
+Click on the purple text to proceed
+</div>
+
+<script>
+
+/* Title animation */
+
+setTimeout(()=>{
+document.getElementById("title").style.opacity=1;
+},500);
+
+setTimeout(()=>{
+document.getElementById("title").style.opacity=0;
+},3500);
+
+
+/* Dialogue sequence */
+
+const lines=[
+"l1","l2","l3","l4","l5","l6","l7","l8","l9","l10","l11","l12","l13"
+];
+
+let delay=4500;
+
+lines.forEach(id=>{
+
+setTimeout(()=>{
+document.getElementById(id).style.opacity=1;
+},delay);
+
+delay+=2500;
+
+setTimeout(()=>{
+document.getElementById(id).style.opacity=0;
+},delay);
+
+delay+=700;
+
+});
+
+/* Final bubble stays */
+
+setTimeout(()=>{
+document.getElementById("l14").style.opacity=1;
+document.getElementById("insert").style.opacity=1;
+},delay);
+
+</script>
+
+</body>
+</html>
