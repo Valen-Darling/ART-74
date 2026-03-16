@@ -4,144 +4,158 @@
 <title>Mahal Kita - Page 3</title>
 
 <style>
-
-body{
-background-color: pink;
-margin:0;
-font-family: Arial, sans-serif;
+body {
+    background-color: pink;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-bottom: 200px; /* space for keyboard so content isn't hidden */
+    overflow-y: auto;       /* allows scrolling if page is tall */
 }
 
 /* Top text */
 .match{
-text-align:center;
-font-size:30px;
-font-family:"Brush Script MT", cursive;
-margin-top:50px;
-opacity:0;
-animation:fadeIn 1.5s forwards;
+    text-align:center;
+    font-size:30px;
+    font-family:"Brush Script MT", cursive;
+    margin-top:50px;
+    opacity:0;
+    animation:fadeIn 1.5s forwards;
 }
 
 /* Chat container */
-
 .chat{
-width:320px;
-margin:20px auto;
-padding-bottom:250px;
+    width:320px;
+    margin:20px auto;
+    padding-bottom:20px;
 }
 
 /* Bubbles */
-
 .bubble-left,
 .bubble-right{
-padding:10px 14px;
-border-radius:20px;
-width:fit-content;
-margin-bottom:12px;
-opacity:0;
-max-width:240px;
+    padding:10px 14px;
+    border-radius:20px;
+    width:fit-content;
+    margin-bottom:12px;
+    opacity:0;
+    max-width:240px;
 }
 
 .bubble-left{
-background:white;
+    background:white;
 }
 
 .bubble-right{
-background:#ffd6e7;
-margin-left:auto;
+    background:#ffd6e7;
+    margin-left:auto;
 }
 
 .bubble-right a{
-text-decoration:none;
-color:black;
+    text-decoration:none;
+    color:black;
 }
 
 /* Typing dots */
-
 .typing-dots{
-display:flex;
-gap:5px;
-opacity:0;
-margin-bottom:5px;
+    display:flex;
+    gap:5px;
+    opacity:0;
+    margin-bottom:5px;
 }
 
 .typing-dots-left{
-justify-content:flex-start;
+    justify-content:flex-start;
 }
 
 .typing-dots-right{
-justify-content:flex-end;
+    justify-content:flex-end;
 }
 
 .dot{
-width:7px;
-height:7px;
-background:gray;
-border-radius:50%;
-animation:bounce 1s infinite;
+    width:7px;
+    height:7px;
+    background:gray;
+    border-radius:50%;
+    animation:bounce 1s infinite;
 }
 
 .dot:nth-child(2){animation-delay:0.2s;}
 .dot:nth-child(3){animation-delay:0.4s;}
 
 @keyframes bounce{
-0%,80%,100%{transform:translateY(0);}
-40%{transform:translateY(-5px);}
+    0%,80%,100%{transform:translateY(0);}
+    40%{transform:translateY(-5px);}
 }
 
 @keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 /* Keyboard */
-
 .keyboard{
-position:fixed;
-bottom:0;
-width:100%;
-background-color:#d63384;
-box-shadow:0 -2px 10px rgba(0,0,0,0.2);
-border-top:1px solid #b02a6f;
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:5px;
-padding:5px 0;
-z-index:10;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background-color:#d63384;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.2);
+    border-top:1px solid #b02a6f;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    padding:5px 0;
+    z-index:10;
 }
 
 /* Text bar */
-
 .input-bar{
-background:white;
-border-radius:25px;
-padding:10px 15px;
-width:80%;
-color:gray;
-font-size:14px;
-text-align:center;
+    background:white;
+    border-radius:25px;
+    padding:10px 15px;
+    width:80%;
+    color:gray;
+    font-size:14px;
+    text-align:center;
 }
 
 /* Keyboard keys */
-
 .key-row{
-display:flex;
-justify-content:center;
-gap:5px;
+    display:flex;
+    justify-content:center;
+    gap:5px;
 }
 
 .key{
-background:#ffb3d1;
-border:none;
-border-radius:6px;
-padding:8px 12px;
-font-size:14px;
+    background:#ffb3d1;
+    border:none;
+    border-radius:6px;
+    padding:8px 12px;
+    font-size:14px;
 }
 
 .space{
-width:220px;
+    width:220px;
 }
 
+/* Image & caption */
+.image-container, .caption {
+    text-align:center;
+    margin-top:15px;
+}
+
+.image-container img {
+    max-width:50%; /* medium size */
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.caption{
+    font-size:16px;
+    font-style:italic;
+    color:#444;
+    margin-top:10px;
+}
 </style>
 </head>
 
@@ -152,159 +166,143 @@ width:220px;
 <div class="chat">
 
 <div class="typing-dots typing-dots-left" id="dots1">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-left" id="msg1">
-Are you still down to hang at the arcade and then have dinner afterwards?
+  Are you still down to hang at the arcade and then have dinner afterwards?
 </div>
 
 <div class="typing-dots typing-dots-right" id="dots2">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-right" id="msg2">
-Of course! ^^ You still want to match?
+  Of course! ^^ You still want to match?
 </div>
 
 <div class="typing-dots typing-dots-left" id="dots3">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-left" id="msg3">
-Yeah! I was thinking of putting on this pink jersey I have
+  Yeah! I was thinking of putting on this pink jersey I have
 </div>
 
 <div class="typing-dots typing-dots-right" id="dots4">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-right" id="msg4">
-Okies! I have this pink dress that can match with that
+  Okies! I have this pink dress that can match with that
 </div>
 
 <div class="typing-dots typing-dots-left" id="dots5">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-left" id="msg5">
-Great! I'll pick you up after work
+  Great! I'll pick you up after work
 </div>
 
 <div class="typing-dots typing-dots-right" id="dots6">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-right" id="msg6">
-See you soon~ ^^
+  See you soon~ ^^
 </div>
 
 <div class="typing-dots typing-dots-left" id="dots7">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-left" id="msg7">
-You ready to lose multiple times? :P
+  You ready to lose multiple times? :P
 </div>
 
 <div class="typing-dots typing-dots-right" id="dots8">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
 <div class="bubble-right" id="msg8">
-<a href="page4.html">Oh hell nah! You're on! >:D</a>
+  <a href="page4.html">Oh hell nah! You're on! >:D</a>
 </div>
 
+</div> <!-- end chat -->
+
+<!-- Image & caption -->
+<div class="image-container" id="page3Image" style="opacity:0;">
+  <img src="../images/matt_page3.jpg" alt="Pink-matching Date">
+</div>
+<div class="caption" id="page3Caption" style="opacity:0;">
+  Pink-matching Date ^^💞💮 Also I did lose to a lot of the games against him :')
 </div>
 
+<!-- Keyboard -->
 <div class="keyboard">
+  <div class="input-bar">(Click on the pink text to proceed)</div>
 
-<div class="input-bar">
-(Click on the pink text to proceed)
-</div>
+  <div class="key-row">
+    <button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
+  </div>
 
-<div class="key-row">
-<button class="key">Q</button>
-<button class="key">W</button>
-<button class="key">E</button>
-<button class="key">R</button>
-<button class="key">T</button>
-<button class="key">Y</button>
-<button class="key">U</button>
-<button class="key">I</button>
-<button class="key">O</button>
-<button class="key">P</button>
-</div>
+  <div class="key-row">
+    <button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
+  </div>
 
-<div class="key-row">
-<button class="key">A</button>
-<button class="key">S</button>
-<button class="key">D</button>
-<button class="key">F</button>
-<button class="key">G</button>
-<button class="key">H</button>
-<button class="key">J</button>
-<button class="key">K</button>
-<button class="key">L</button>
-</div>
+  <div class="key-row">
+    <button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button><button class="key">⌫</button>
+  </div>
 
-<div class="key-row">
-<button class="key">Z</button>
-<button class="key">X</button>
-<button class="key">C</button>
-<button class="key">V</button>
-<button class="key">B</button>
-<button class="key">N</button>
-<button class="key">M</button>
-<button class="key">⌫</button>
-</div>
-
-<div class="key-row">
-<button class="key space">SPACE</button>
-</div>
-
+  <div class="key-row">
+    <button class="key space">SPACE</button>
+  </div>
 </div>
 
 <script>
-
 const messages=[
-{dots:'dots1',msg:'msg1'},
-{dots:'dots2',msg:'msg2'},
-{dots:'dots3',msg:'msg3'},
-{dots:'dots4',msg:'msg4'},
-{dots:'dots5',msg:'msg5'},
-{dots:'dots6',msg:'msg6'},
-{dots:'dots7',msg:'msg7'},
-{dots:'dots8',msg:'msg8'}
+  {dots:'dots1',msg:'msg1'},
+  {dots:'dots2',msg:'msg2'},
+  {dots:'dots3',msg:'msg3'},
+  {dots:'dots4',msg:'msg4'},
+  {dots:'dots5',msg:'msg5'},
+  {dots:'dots6',msg:'msg6'},
+  {dots:'dots7',msg:'msg7'},
+  {dots:'dots8',msg:'msg8'}
 ];
 
 let delay=1000;
 
-messages.forEach(item=>{
+messages.forEach((item,index)=>{
+    setTimeout(()=>{
+        document.getElementById(item.dots).style.opacity=1;
+    },delay);
 
-setTimeout(()=>{
-document.getElementById(item.dots).style.opacity=1;
-},delay);
+    delay+=1000;
 
-delay+=1000;
+    setTimeout(()=>{
+        document.getElementById(item.dots).style.opacity=0;
+        document.getElementById(item.msg).style.opacity=1;
 
-setTimeout(()=>{
-document.getElementById(item.dots).style.opacity=0;
-document.getElementById(item.msg).style.opacity=1;
-},delay);
+        // Fade in image & caption after last chat
+        if(index === messages.length -1){
+            let img = document.getElementById('page3Image');
+            let caption = document.getElementById('page3Caption');
+            let opacityImg = 0;
+            let opacityCaption = 0;
 
-delay+=1000;
+            let fadeInterval = setInterval(()=>{
+                if(opacityImg >=1 && opacityCaption >=1){
+                    clearInterval(fadeInterval);
+                }
+                if(opacityImg <1){
+                    opacityImg +=0.05;
+                    img.style.opacity = opacityImg;
+                }
+                if(opacityCaption <1){
+                    opacityCaption +=0.05;
+                    caption.style.opacity = opacityCaption;
+                }
+            },30);
+        }
 
+    },delay);
+
+    delay+=1000;
 });
-
 </script>
 
 </body>
