@@ -10,7 +10,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Top text */
+
 .match {
     text-align: center;
     font-size: 30px;
@@ -20,7 +20,7 @@ body {
     opacity: 0;
 }
 
-/* Insert text */
+
 .insert {
     text-align: center;
     font-size: 13px;
@@ -30,14 +30,14 @@ body {
     opacity: 0;
 }
 
-/* Chat container */
+
 .chat {
     width: 320px;
     margin: 20px auto;
     padding-bottom: 50px;
 }
 
-/* Bubbles */
+
 .bubble-left,
 .bubble-right {
     padding: 10px 14px;
@@ -49,19 +49,19 @@ body {
     transition: opacity 1s ease;
 }
 
-/* Swap colors: left=blue, right=purple */
+
 .bubble-left {
-    background-color: #3b82f6; /* blue */
+    background-color: #3b82f6; 
     color: white;
 }
 
 .bubble-right {
-    background-color: #c8a2ff; /* pastel purple */
+    background-color: #c8a2ff; 
     color: black;
     margin-left: auto;
 }
 
-/* Final instruction insert */
+
 .final-insert {
     text-align: center;
     font-size: 12px;
@@ -105,23 +105,19 @@ const messages = [
     'msg1','msg2','msg3','msg4','msg5','msg6','msg7','msg8','msg9','msg10','msg11','msg12'
 ];
 
-let delay = 500; // initial delay
+let delay = 500; 
 
-// Fade in header
+
 setTimeout(() => {
     header.style.opacity = 1;
 }, delay);
 
-delay += 1500; // wait 1.5s before showing insert text
-
-// Fade in insert text
+delay += 1500; 
 setTimeout(() => {
     insert.style.opacity = 1;
 }, delay);
 
-delay += 1500; // wait 1.5s before showing chat
-
-// Fade in chat bubbles one by one
+delay += 1500; 
 messages.forEach(id => {
     setTimeout(() => {
         document.getElementById(id).style.opacity = 1;
@@ -129,7 +125,7 @@ messages.forEach(id => {
     delay += 1500;
 });
 
-// Fade in final instruction after last bubble
+
 setTimeout(() => {
     finalInsert.style.opacity = 1;
 }, delay);
