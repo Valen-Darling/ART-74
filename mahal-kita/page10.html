@@ -50,20 +50,20 @@ function showNextNumber() {
         setTimeout(() => {
             countdownEl.style.opacity = 0;
             number--;
-            setTimeout(showNextNumber, 500); // fade out before next number
-        }, 1000); // number visible for 1s
+            setTimeout(showNextNumber, 500); 
+        }, 1000); // 
     } else {
-        // Show "HAPPY 2026!"
+        
         happyEl.style.opacity = 1;
 
-        // Redirect to page11.html after 2 seconds
+        
         setTimeout(() => {
             window.location.href = "page11.html";
         }, 2000);
     }
 }
 
-// Start countdown
+
 showNextNumber();
 </script>
 

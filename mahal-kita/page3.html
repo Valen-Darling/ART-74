@@ -8,11 +8,11 @@ body {
     background-color: pink;
     margin: 0;
     font-family: Arial, sans-serif;
-    padding-bottom: 200px; /* space for keyboard so content isn't hidden */
-    overflow-y: auto;       /* allows scrolling if page is tall */
+    padding-bottom: 200px; 
+    overflow-y: auto;       
 }
 
-/* Top text */
+
 .match{
     text-align:center;
     font-size:30px;
@@ -22,14 +22,14 @@ body {
     animation:fadeIn 1.5s forwards;
 }
 
-/* Chat container */
+
 .chat{
     width:320px;
     margin:20px auto;
     padding-bottom:20px;
 }
 
-/* Bubbles */
+
 .bubble-left,
 .bubble-right{
     padding:10px 14px;
@@ -54,7 +54,7 @@ body {
     color:black;
 }
 
-/* Typing dots */
+
 .typing-dots{
     display:flex;
     gap:5px;
@@ -91,7 +91,7 @@ body {
     to{opacity:1;}
 }
 
-/* Keyboard */
+
 .keyboard{
     position:fixed;
     bottom:0;
@@ -107,7 +107,7 @@ body {
     z-index:10;
 }
 
-/* Text bar */
+
 .input-bar{
     background:white;
     border-radius:25px;
@@ -118,7 +118,7 @@ body {
     text-align:center;
 }
 
-/* Keyboard keys */
+
 .key-row{
     display:flex;
     justify-content:center;
@@ -137,14 +137,14 @@ body {
     width:220px;
 }
 
-/* Image & caption */
+
 .image-container, .caption {
     text-align:center;
     margin-top:15px;
 }
 
 .image-container img {
-    max-width:50%; /* medium size */
+    max-width:50%; 
     height:auto;
     border-radius:12px;
     box-shadow:0 5px 15px rgba(0,0,0,0.3);
@@ -221,9 +221,9 @@ body {
   <a href="page4.html">Oh hell nah! You're on! >:D</a>
 </div>
 
-</div> <!-- end chat -->
+</div> 
 
-<!-- Image & caption -->
+
 <div class="image-container" id="page3Image" style="opacity:0;">
   <img src="../images/matt_page3.jpg" alt="Pink-matching Date">
 </div>
@@ -231,7 +231,7 @@ body {
   Pink-matching Date ^^💞💮 Also I did lose to a lot of the games against him :')
 </div>
 
-<!-- Keyboard -->
+
 <div class="keyboard">
   <div class="input-bar">(Click on the pink text to proceed)</div>
 
@@ -277,7 +277,7 @@ messages.forEach((item,index)=>{
         document.getElementById(item.dots).style.opacity=0;
         document.getElementById(item.msg).style.opacity=1;
 
-        // Fade in image & caption after last chat
+        
         if(index === messages.length -1){
             let img = document.getElementById('page3Image');
             let caption = document.getElementById('page3Caption');
