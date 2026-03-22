@@ -10,7 +10,7 @@ body{
     font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
 }
 
-/* "You got a match!" text */
+
 .match{
     text-align: center;
     font-size: 26px;
@@ -20,14 +20,14 @@ body{
     font-family: "Brush Script MT", cursive;
 }
 
-/* Chat container */
+
 .chat{
     width: 320px;
     margin: 20px auto;
-    padding-bottom: 250px; /* space for keyboard + input bar */
+    padding-bottom: 250px; 
 }
 
-/* Bubbles */
+
 .bubble-left, .bubble-right{
     padding: 10px 14px;
     border-radius: 20px;
@@ -50,7 +50,7 @@ body{
     color: black;
 }
 
-/* Typing dots container */
+
 .typing-dots{
     display: flex;
     gap: 5px;
@@ -66,7 +66,7 @@ body{
     justify-content: flex-end;
 }
 
-/* Dots animation */
+
 .dot{
     width: 7px;
     height: 7px;
@@ -83,7 +83,7 @@ body{
     40%{ transform: translateY(-5px); }
 }
 
-/* Insert text in middle */
+
 .insert-text{
     text-align: center;
     color: white;
@@ -92,18 +92,18 @@ body{
     opacity: 0;
 }
 
-/* Fade-in animation */
+
 @keyframes fadeIn{
     from{opacity:0;}
     to{opacity:1;}
 }
 
-/* Pastel pink keyboard */
+
 .keyboard{
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #d63384; /* darker pink / magenta */
+    background-color: #d63384; 
     box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
     border-top: 1px solid #b02a6f;
     z-index: 10;
@@ -114,7 +114,7 @@ body{
     padding: 5px 0;
 }
 
-/* Text bar inside keyboard */
+
 .input-bar{
     background-color: white;
     border-radius: 25px;
@@ -125,7 +125,7 @@ body{
     text-align: center;
 }
 
-/* Keyboard keys */
+
 .key-row{
     display: flex;
     justify-content: center;
@@ -158,7 +158,7 @@ body{
 
 <div class="chat">
 
-<!-- Message 1 -->
+
 <div class="typing-dots typing-dots-left" id="dots1">
   <div class="dot"></div>
   <div class="dot"></div>
@@ -166,7 +166,7 @@ body{
 </div>
 <div class="bubble-left" id="msg1">Hi</div>
 
-<!-- Message 2 -->
+
 <div class="typing-dots typing-dots-right" id="dots2">
   <div class="dot"></div>
   <div class="dot"></div>
@@ -248,11 +248,11 @@ body{
 
 </div>
 
-<!-- Keyboard + input bar -->
+
 <div class="keyboard">
   <div class="input-bar">(Click on the pink text to proceed)</div>
 
-  <!-- QWERTY keyboard -->
+  
   <div class="key-row">
     <button class="key">Q</button>
     <button class="key">W</button>
@@ -292,7 +292,7 @@ body{
 </div>
 
 <script>
-// Show typing dots and then message sequentially
+
 const messages = [
   {dots:'dots1', msg:'msg1'},
   {dots:'dots2', msg:'msg2'},
