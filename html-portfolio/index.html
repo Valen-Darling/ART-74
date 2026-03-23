@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marie Pacis Art Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      background:black;
+      color:white;
+      font-family:Arial, sans-serif;
+      min-height:100vh;
+      overflow:hidden;
+    }
+
+    .page{
+      display:flex;
+      min-height:100vh;
+      width:100%;
+    }
+
+    /* glitch side panels */
+    .glitch-side{
+      width:18%;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(180deg,#050505 0%,#111 50%,#050505 100%);
+    }
+
+    .glitch-side::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.08) 0px,
+        rgba(255,255,255,0.08) 1px,
+        transparent 3px,
+        transparent 6px
+      );
+      animation:scanMove 8s linear infinite;
+      opacity:0.35;
+    }
+
+    .glitch-side::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        90deg,
+        rgba(255,0,100,0.12),
+        transparent 35%,
+        rgba(0,255,255,0.12) 70%,
+        transparent
+      );
+      animation:glitchShift 0.2s infinite steps(2);
+      opacity:0.75;
+    }
+
+    .noise{
+      position:absolute;
+      inset:0;
+      background-image:repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      animation:flicker 0.15s infinite;
+      opacity:0.2;
+    }
+
+    /* center content */
+    .content{
+      width:64%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding:80px 20px 20px;
+    }
+
+    .line1,
+    .line2,
+    .line3{
+      opacity:0;
+      animation:fadeIn 1.5s forwards;
+    }
+
+    .line1{
+      font-family:'Permanent Marker', cursive;
+      font-size:4.5rem;
+      font-style:italic;
+      margin-bottom:22px;
+      animation-delay:0.5s;
+    }
+
+    .line2{
+      font-family:'Anton', sans-serif;
+      font-size:2.4rem;
+      letter-spacing:1px;
+      margin-bottom:16px;
+      animation-delay:2s;
+    }
+
+    .line3{
+      font-family:'Roboto', sans-serif;
+      font-size:1.1rem;
+      max-width:700px;
+      line-height:1.6;
+      color:#d8d8d8;
+      animation-delay:3.5s;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes scanMove{
+      from{transform:translateY(-120px);}
+      to{transform:translateY(120px);}
+    }
+
+    @keyframes glitchShift{
+      0%{transform:translate(0,0);}
+      25%{transform:translate(2px,-1px);}
+      50%{transform:translate(-2px,1px);}
+      75%{transform:translate(1px,2px);}
+      100%{transform:translate(0,0);}
+    }
+
+    @keyframes flicker{
+      0%{opacity:0.15;}
+      50%{opacity:0.28;}
+      100%{opacity:0.18;}
+    }
+
+    @media (max-width:900px){
+      .glitch-side{
+        display:none;
+      }
+
+      .content{
+        width:100%;
+        padding:60px 20px 20px;
+      }
+
+      .line1{
+        font-size:3rem;
+      }
+
+      .line2{
+        font-size:1.8rem;
+      }
+
+      .line3{
+        font-size:1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="glitch-side">
+      <div class="noise"></div>
+    </div>
+
+    <main class="content">
+      <div class="line1">Step into my mind...</div>
+      <div class="line2">Marie Pacis' Art Portfolio</div>
+      <div class="line3">An art student experimenting with different art forms, both digital and traditional.</div>
+    </main>
+
+    <div class="glitch-side">
+      <div class="noise"></div>
+    </div>
+  </div>
+
+</body>
+</html>
