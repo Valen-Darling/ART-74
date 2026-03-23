@@ -21,7 +21,7 @@
       color:white;
       font-family:Arial, sans-serif;
       min-height:100vh;
-      overflow:hidden;
+      overflow-x:hidden;
     }
 
     .page{
@@ -30,7 +30,6 @@
       width:100%;
     }
 
-    /* glitch side panels */
     .glitch-side{
       width:18%;
       position:relative;
@@ -82,14 +81,13 @@
       opacity:0.2;
     }
 
-    /* center content */
     .content{
       width:64%;
       display:flex;
       flex-direction:column;
       align-items:center;
       text-align:center;
-      padding:80px 20px 20px;
+      padding:40px 20px 80px;
     }
 
     .line1,
@@ -121,7 +119,64 @@
       max-width:700px;
       line-height:1.6;
       color:#d8d8d8;
+      margin-bottom:50px;
       animation-delay:3.5s;
+    }
+
+    .artworks{
+      width:100%;
+      max-width:900px;
+      display:flex;
+      flex-direction:column;
+      gap:40px;
+      opacity:0;
+      animation:fadeIn 1.5s forwards;
+      animation-delay:5s;
+    }
+
+    .art-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:30px;
+      width:100%;
+    }
+
+    .art-row.left{
+      flex-direction:row;
+    }
+
+    .art-row.right{
+      flex-direction:row-reverse;
+    }
+
+    .art-link{
+      display:inline-block;
+      text-decoration:none;
+    }
+
+    .art-image{
+      width:320px;
+      max-width:100%;
+      height:auto;
+      border:2px solid rgba(255,255,255,0.15);
+      box-shadow:0 0 20px rgba(255,255,255,0.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      display:block;
+    }
+
+    .art-link:hover .art-image{
+      transform:scale(1.03);
+      box-shadow:0 0 25px rgba(0,255,255,0.2);
+    }
+
+    .art-label{
+      width:220px;
+      text-align:left;
+      font-family:'Anton', sans-serif;
+      font-size:1.3rem;
+      letter-spacing:1px;
+      color:#f2f2f2;
     }
 
     @keyframes fadeIn{
@@ -161,7 +216,7 @@
 
       .content{
         width:100%;
-        padding:60px 20px 20px;
+        padding:40px 20px 60px;
       }
 
       .line1{
@@ -174,6 +229,20 @@
 
       .line3{
         font-size:1rem;
+      }
+
+      .art-row.left,
+      .art-row.right{
+        flex-direction:column;
+      }
+
+      .art-label{
+        width:100%;
+        text-align:center;
+      }
+
+      .art-image{
+        width:280px;
       }
     }
   </style>
@@ -189,6 +258,29 @@
       <div class="line1">Step into my mind...</div>
       <div class="line2">Marie Pacis' Art Portfolio</div>
       <div class="line3">An art student experimenting with different art forms, both digital and traditional.</div>
+
+      <section class="artworks">
+        <div class="art-row left">
+          <a href="glitch.html" class="art-link">
+            <img src="portfolio-images/glitch_page.png" alt="Glitch artwork preview" class="art-image">
+          </a>
+          <div class="art-label">GLITCH</div>
+        </div>
+
+        <div class="art-row right">
+          <a href="meme-mashup.html" class="art-link">
+            <img src="portfolio-images/meme_mashup_page.png" alt="Meme Mashup artwork preview" class="art-image">
+          </a>
+          <div class="art-label">MEME MASHUP</div>
+        </div>
+
+        <div class="art-row left">
+          <a href="netart.html" class="art-link">
+            <img src="portfolio-images/netart_page.png" alt="Net Art artwork preview" class="art-image">
+          </a>
+          <div class="art-label">NET ART</div>
+        </div>
+      </section>
     </main>
 
     <div class="glitch-side">
