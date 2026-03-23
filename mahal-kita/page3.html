@@ -12,7 +12,6 @@ body {
     overflow-y: auto;       
 }
 
-
 .match{
     text-align:center;
     font-size:30px;
@@ -22,13 +21,11 @@ body {
     animation:fadeIn 1.5s forwards;
 }
 
-
 .chat{
     width:320px;
     margin:20px auto;
     padding-bottom:20px;
 }
-
 
 .bubble-left,
 .bubble-right{
@@ -53,7 +50,6 @@ body {
     text-decoration:none;
     color:black;
 }
-
 
 .typing-dots{
     display:flex;
@@ -91,7 +87,6 @@ body {
     to{opacity:1;}
 }
 
-
 .keyboard{
     position:fixed;
     bottom:0;
@@ -107,7 +102,6 @@ body {
     z-index:10;
 }
 
-
 .input-bar{
     background:white;
     border-radius:25px;
@@ -117,7 +111,6 @@ body {
     font-size:14px;
     text-align:center;
 }
-
 
 .key-row{
     display:flex;
@@ -137,24 +130,41 @@ body {
     width:220px;
 }
 
-
 .image-container, .caption {
     text-align:center;
     margin-top:15px;
 }
 
 .image-container img {
-    max-width:50%; 
+    max-width:30%; 
     height:auto;
     border-radius:12px;
     box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 .caption{
-    font-size:16px;
+    font-size:16px; 
     font-style:italic;
     color:#444;
     margin-top:10px;
+    text-align:center;
+}
+
+
+@media (max-width:768px) {
+    .image-container img {
+        max-width:70%;
+    }
+    .caption {
+        font-size:14px;
+    }
+}
+
+
+@media (max-width:480px) {
+    .image-container img {
+        max-width:70%;
+    }
 }
 </style>
 </head>
@@ -223,14 +233,12 @@ body {
 
 </div> 
 
-
 <div class="image-container" id="page3Image" style="opacity:0;">
   <img src="../images/matt_page3.jpg" alt="Pink-matching Date">
 </div>
 <div class="caption" id="page3Caption" style="opacity:0;">
   Pink-matching Date ^^💞💮 Also I did lose to a lot of the games against him :')
 </div>
-
 
 <div class="keyboard">
   <div class="input-bar">(Click on the pink text to proceed)</div>
@@ -277,7 +285,6 @@ messages.forEach((item,index)=>{
         document.getElementById(item.dots).style.opacity=0;
         document.getElementById(item.msg).style.opacity=1;
 
-        
         if(index === messages.length -1){
             let img = document.getElementById('page3Image');
             let caption = document.getElementById('page3Caption');
