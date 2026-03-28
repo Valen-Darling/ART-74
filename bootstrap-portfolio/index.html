@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step Into My Mind</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: black !important;
+    }
+
+    .nav-link {
+      color: white !important;
+    }
+
+    .nav-link:hover {
+      color: #0ff !important;
+    }
+
+    /* Main content */
+    .main-content {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Title */
+    .title {
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 4rem;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInTitle 0.4s ease forwards;
+    }
+
+    /* Caption */
+    .caption {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInCaption 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+
+    /* Animations */
+    @keyframes fadeInTitle {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInCaption {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Glitch side bars */
+    .glitch-left,
+    .glitch-right {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        red,
+        blue,
+        lime,
+        purple,
+        cyan
+      );
+      opacity: 0.15;
+      mix-blend-mode: screen;
+      animation: glitchMove 0.15s infinite;
+      z-index: 0;
+    }
+
+    .glitch-left {
+      left: 0;
+    }
+
+    .glitch-right {
+      right: 0;
+    }
+
+    @keyframes glitchMove {
+      0% { transform: translateY(0); }
+      25% { transform: translateY(5px); }
+      50% { transform: translateY(-5px); }
+      75% { transform: translateY(3px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Make content above glitch bars */
+    .main-content, nav {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Glitch Side Bars -->
+<div class="glitch-left"></div>
+<div class="glitch-right"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark border-bottom border-light">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Marie Pacis</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="glitch.html">Glitch</a></li>
+        <li class="nav-item"><a class="nav-link" href="meme-mashup.html">Meme Mashup</a></li>
+        <li class="nav-item"><a class="nav-link" href="net-art.html">Net Art</a></li>
+        <li class="nav-item"><a class="nav-link" href="print.html">Print</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container text-center main-content">
+  <h1 class="title">Step Into My Mind...</h1>
+  <p class="caption">A collection of Marie Pacis' digital art (so far-)</p>
+
+</div>
+
+<!-- Bootstrap JS (for mobile menu) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
