@@ -3,45 +3,45 @@
 <head>
 <title>Mahal Kita - Page 7</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
-background-color: pink;
+background-color:pink;
 margin:0;
-font-family: Arial, sans-serif;
+font-family:Arial, sans-serif;
+overflow-x:hidden;
+padding-bottom:260px; /* prevents keyboard overlap */
 }
 
-/* Top text */
-
+/* Top title */
 .match{
 text-align:center;
 font-size:30px;
 font-family:"Brush Script MT", cursive;
 margin-top:50px;
 opacity:0;
-animation:fadeIn 1.5s forwards;
+animation:fadeIn 1.2s forwards;
 }
 
-/* Insert text */
-
+/* Context text */
 .insert{
 text-align:center;
 font-size:13px;
 font-style:italic;
 color:#444;
-margin:10px 30px 20px 30px;
+margin:10px 20px 20px 20px;
 }
 
-/* Chat container */
-
+/* Chat wrapper */
 .chat{
-width:320px;
+width:90%;
+max-width:360px;
 margin:20px auto;
-padding-bottom:250px;
 }
 
 /* Bubbles */
-
 .bubble-left,
 .bubble-right{
 padding:10px 14px;
@@ -49,12 +49,11 @@ border-radius:20px;
 width:fit-content;
 margin-bottom:12px;
 opacity:0;
-max-width:240px;
+max-width:80%;
+transition:opacity 0.3s ease;
 }
 
-.bubble-left{
-background:white;
-}
+.bubble-left{ background:white; }
 
 .bubble-right{
 background:#ffd6e7;
@@ -67,22 +66,17 @@ color:black;
 display:block;
 }
 
-/* Typing dots */
-
+/* typing dots */
 .typing-dots{
 display:flex;
 gap:5px;
 opacity:0;
 margin-bottom:5px;
+transition:opacity 0.2s ease;
 }
 
-.typing-dots-left{
-justify-content:flex-start;
-}
-
-.typing-dots-right{
-justify-content:flex-end;
-}
+.typing-dots-left{ justify-content:flex-start; }
+.typing-dots-right{ justify-content:flex-end; }
 
 .dot{
 width:7px;
@@ -105,8 +99,30 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
-/* Keyboard */
+/* IMAGE SECTION (hidden first) */
+.photo-section{
+text-align:center;
+margin:25px auto 120px auto;
+opacity:0;
+transition:opacity 0.8s ease;
+}
 
+.photo-section img{
+width:75%;
+max-width:260px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+.caption{
+margin-top:10px;
+font-size:14px;
+color:#444;
+font-style:italic;
+padding:0 20px;
+}
+
+/* Keyboard */
 .keyboard{
 position:fixed;
 bottom:0;
@@ -122,8 +138,6 @@ padding:5px 0;
 z-index:10;
 }
 
-/* Text bar */
-
 .input-bar{
 background:white;
 border-radius:25px;
@@ -134,24 +148,27 @@ font-size:14px;
 text-align:center;
 }
 
-/* Keyboard */
-
 .key-row{
 display:flex;
 justify-content:center;
 gap:5px;
+flex-wrap:wrap;
 }
 
 .key{
 background:#ffb3d1;
 border:none;
 border-radius:6px;
-padding:8px 12px;
+padding:8px 10px;
 font-size:14px;
 }
 
-.space{
-width:220px;
+.space{ width:180px; }
+
+/* mobile tweaks */
+@media (max-width:480px){
+.match{font-size:24px;}
+.input-bar{width:85%;}
 }
 
 </style>
@@ -159,217 +176,114 @@ width:220px;
 
 <body>
 
-<div class="match">6 Months Later...</div>
+<div class="match">7 Months Later...</div>
 
 <div class="insert">
-For context, I was staying over at a friend's house near Sacramento, where there was an event with different Christmas lights. My boyfriend's family invited me to join them to that event, so they were going to pick me up from where I was before heading to Sacramento.
+For context, I was staying over at a friend's house near Sacramento, where there was an event with different Christmas lights. My boyfriend's family invited me to join them to that event.
 </div>
 
 <div class="chat">
 
-<div class="typing-dots typing-dots-right" id="dots1">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg1">
-I can't wait for you to see the outfit I prepared! I'm so excited!! 🤭
-</div>
+<div class="typing-dots typing-dots-right" id="dots1"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg1">I can't wait for you to see the outfit I prepared! I'm so excited!! 🤭</div>
 
-<div class="typing-dots typing-dots-left" id="dots2">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg2">
-Same here! My parents are almost done getting ready
-</div>
+<div class="typing-dots typing-dots-left" id="dots2"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg2">Same here! My parents are almost done getting ready</div>
 
-<div class="typing-dots typing-dots-right" id="dots3">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg3">
-Thank you guys again for inviting me! It really means a lot that your parents offered me to join you guys 🥹💞
-</div>
+<div class="typing-dots typing-dots-right" id="dots3"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg3">Thank you again for inviting me 🥹💞</div>
 
-<div class="typing-dots typing-dots-left" id="dots4">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg4">
-It's no problem! My mom does like you a lot
-</div>
+<div class="typing-dots typing-dots-left" id="dots4"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg4">My mom does like you a lot</div>
 
-<div class="typing-dots typing-dots-right" id="dots5">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg5">
-Don't lie to me! ToT I still feel like I could do better to impress your parents...
-</div>
+<div class="typing-dots typing-dots-right" id="dots5"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg5">I still feel like I could do better ToT</div>
 
-<div class="typing-dots typing-dots-left" id="dots6">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg6">
-They already love you, they love that their son finally found someone who's able to handle him 🤣 jkjk
-</div>
+<div class="typing-dots typing-dots-left" id="dots6"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg6">They already love you 🤣</div>
 
-<div class="typing-dots typing-dots-right" id="dots7">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg7">
-Aish! I just don't want to make an embarrassment of myself TT
-</div>
+<div class="typing-dots typing-dots-right" id="dots7"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg7">I don’t want to embarrass myself TT</div>
 
-<div class="typing-dots typing-dots-left" id="dots8">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg8">
-You won't, trust me. I know you, and they would love you just for being yourself
-</div>
+<div class="typing-dots typing-dots-left" id="dots8"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg8">You won’t, trust me</div>
 
-<div class="typing-dots typing-dots-right" id="dots9">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg9">
-Cheesy :b
-</div>
+<div class="typing-dots typing-dots-right" id="dots9"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg9">Cheesy :b</div>
 
-<div class="typing-dots typing-dots-left" id="dots10">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg10">
-Well, you do sometimes love the cheesiness 😙
-</div>
+<div class="typing-dots typing-dots-left" id="dots10"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg10">You love it 😙</div>
 
-<div class="typing-dots typing-dots-right" id="dots11">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg11">
-Haha, you're right. Well let me know when you're close to the area! Just so I could get all my stuff ready
-</div>
+<div class="typing-dots typing-dots-right" id="dots11"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg11">Let me know when you're close!</div>
 
-<div class="typing-dots typing-dots-left" id="dots12">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg12">
-Okay, I'll see you soon. I love you 💞
-</div>
+<div class="typing-dots typing-dots-left" id="dots12"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg12">Okay, I love you 💞</div>
 
-<div class="typing-dots typing-dots-right" id="dots13">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-right" id="dots13"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-right" id="msg13">
 <a href="page9.html">I love you too, my love 💞✨</a>
 </div>
 
 </div>
 
+<!-- IMAGE (revealed AFTER chat) -->
+<div class="photo-section">
+<img src="../images/matt_page8.jpg" alt="photo">
+<div class="caption">This...this is my favorite photo of us 💞</div>
+</div>
+
+<!-- keyboard -->
 <div class="keyboard">
+<div class="input-bar">(Click on the pink text to proceed)</div>
 
-<div class="input-bar">
-(Click on the pink text to proceed)
+<div class="key-row">
+<button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
 </div>
 
 <div class="key-row">
-<button class="key">Q</button>
-<button class="key">W</button>
-<button class="key">E</button>
-<button class="key">R</button>
-<button class="key">T</button>
-<button class="key">Y</button>
-<button class="key">U</button>
-<button class="key">I</button>
-<button class="key">O</button>
-<button class="key">P</button>
+<button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
 </div>
 
 <div class="key-row">
-<button class="key">A</button>
-<button class="key">S</button>
-<button class="key">D</button>
-<button class="key">F</button>
-<button class="key">G</button>
-<button class="key">H</button>
-<button class="key">J</button>
-<button class="key">K</button>
-<button class="key">L</button>
-</div>
-
-<div class="key-row">
-<button class="key">Z</button>
-<button class="key">X</button>
-<button class="key">C</button>
-<button class="key">V</button>
-<button class="key">B</button>
-<button class="key">N</button>
-<button class="key">M</button>
-<button class="key">⌫</button>
+<button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button><button class="key">⌫</button>
 </div>
 
 <div class="key-row">
 <button class="key space">SPACE</button>
 </div>
-
 </div>
 
 <script>
 
-const messages=[
-{dots:'dots1',msg:'msg1'},
-{dots:'dots2',msg:'msg2'},
-{dots:'dots3',msg:'msg3'},
-{dots:'dots4',msg:'msg4'},
-{dots:'dots5',msg:'msg5'},
-{dots:'dots6',msg:'msg6'},
-{dots:'dots7',msg:'msg7'},
-{dots:'dots8',msg:'msg8'},
-{dots:'dots9',msg:'msg9'},
-{dots:'dots10',msg:'msg10'},
-{dots:'dots11',msg:'msg11'},
-{dots:'dots12',msg:'msg12'},
-{dots:'dots13',msg:'msg13'}
+const messages = [
+"dots1","dots2","dots3","dots4","dots5","dots6","dots7",
+"dots8","dots9","dots10","dots11","dots12","dots13"
 ];
 
-let delay=1000;
+let delay = 600;
 
-messages.forEach(item=>{
-
-setTimeout(()=>{
-document.getElementById(item.dots).style.opacity=1;
-},delay);
-
-delay+=1000;
+messages.forEach((dotsId, i) => {
 
 setTimeout(()=>{
-document.getElementById(item.dots).style.opacity=0;
-document.getElementById(item.msg).style.opacity=1;
-},delay);
+document.getElementById(dotsId).style.opacity = 1;
+}, delay);
 
-delay+=1000;
+delay += 600;
+
+setTimeout(()=>{
+document.getElementById(dotsId).style.opacity = 0;
+document.getElementById("msg" + (i+1)).style.opacity = 1;
+}, delay);
+
+delay += 600;
 
 });
+
+// reveal image AFTER everything finishes
+setTimeout(()=>{
+document.querySelector(".photo-section").style.opacity = 1;
+}, delay + 600);
 
 </script>
 
