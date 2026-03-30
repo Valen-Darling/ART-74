@@ -1,163 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mahal Kita - Page 2</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-
-body{
-    background-color: pink;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-    overflow-x:hidden;
+* {
+  box-sizing: border-box;
 }
 
-.match{
-    text-align: center;
-    font-size: 26px;
-    margin-top: 50px;
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-    font-family: "Brush Script MT", cursive;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: pink;
+  font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
 }
 
-/* FIX: responsive chat */
-.chat{
-    width: 92%;
-    max-width: 360px;
-    margin: 20px auto;
-    padding-bottom: 260px;
+/* SPACE SO CHAT NEVER HITS KEYBOARD */
+body {
+  padding-bottom: 220px;
 }
 
-/* FIX: responsive bubbles */
-.bubble-left, .bubble-right{
-    padding: 10px 14px;
-    border-radius: 20px;
-    width: fit-content;
-    margin-bottom: 12px;
-    opacity: 0;
-
-    max-width: 85%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    font-size: 14px;
+/* HEADER */
+.match {
+  text-align: center;
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  margin: 40px 0 20px;
 }
 
-.bubble-left{
-    background-color: white;
+/* CHAT CONTAINER */
+.chat {
+  width: min(92%, 420px);
+  margin: 0 auto;
 }
 
-.bubble-right{
-    background-color: #ffd6e7;
-    margin-left: auto;
+/* BASE HIDDEN STATE */
+.hide {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.4s ease;
 }
 
-.bubble-right a{
-    text-decoration: none;
-    color: black;
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
-/* typing dots unchanged */
-.typing-dots{
-    display: flex;
-    gap: 5px;
-    opacity: 0;
-    margin-bottom: 5px;
+/* BUBBLES */
+.bubble-left, .bubble-right {
+  padding: 10px 14px;
+  border-radius: 20px;
+  max-width: 85%;
+  width: fit-content;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-.typing-dots-left{
-    justify-content: flex-start;
+.bubble-left {
+  background: white;
+  margin-right: auto;
 }
 
-.typing-dots-right{
-    justify-content: flex-end;
+.bubble-right {
+  background: #ffd6e7;
+  margin-left: auto;
 }
 
-.dot{
-    width: 7px;
-    height: 7px;
-    background: gray;
-    border-radius: 50%;
-    animation: bounce 1s infinite;
+.bubble-right a {
+  text-decoration: none;
+  color: black;
 }
 
-.dot:nth-child(2){ animation-delay: 0.2s; }
-.dot:nth-child(3){ animation-delay: 0.4s; }
-
-@keyframes bounce{
-    0%, 80%, 100%{ transform: translateY(0); }
-    40%{ transform: translateY(-5px); }
+/* TYPING DOTS */
+.typing-dots {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
 }
 
-.insert-text{
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    margin: 20px 0;
-    opacity: 0;
+.dots-left { justify-content: flex-start; }
+.dots-right { justify-content: flex-end; margin-left: auto; }
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: gray;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
 }
 
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
 }
 
-/* FIX: keyboard responsiveness */
+/* INSERT TEXT */
+.insert-text {
+  text-align: center;
+  color: white;
+  margin: 20px 0;
+}
+
+/* KEYBOARD (100% FIXED) */
 .keyboard{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 100vw;
-    background-color: #d63384;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-    border-top: 1px solid #b02a6f;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 0;
-    box-sizing: border-box;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background-color:#d63384;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.2);
+    border-top:1px solid #b02a6f;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    padding:5px 0;
+    z-index:10;
 }
 
 .input-bar{
-    background-color: white;
-    border-radius: 25px;
-    padding: 10px 15px;
-    width: 90%;
-    max-width: 420px;
-    color: gray;
-    font-size: 13px;
-    text-align: center;
+    background:white;
+    border-radius:25px;
+    padding:10px 15px;
+    width:85%;
+    color:gray;
+    font-size:14px;
+    text-align:center;
 }
 
 .key-row{
-    display: flex;
-    justify-content: center;
-    gap: 4px;
+    display:flex;
+    justify-content:center;
+    gap:5px;
     flex-wrap: wrap;
 }
 
 .key{
-    background-color: #ffe6f0;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 10px;
-    font-size: 13px;
-    cursor: default;
+    background:#ffb3d1;
+    border:none;
+    border-radius:6px;
+    padding:8px 10px;
+    font-size:14px;
 }
 
 .space{
-    width: 60%;
-    max-width: 220px;
+    width:180px;
 }
-
-.key:hover{
-    background-color: #ffd1e3;
-}
-
 </style>
 </head>
 
@@ -167,79 +161,125 @@ body{
 
 <div class="chat">
 
-<!-- (UNCHANGED CONTENT) -->
-<!-- ALL YOUR CHAT + SCRIPT KEPT EXACT SAME -->
+<div class="typing-dots dots-left hide" id="dots1"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left hide" id="msg1">Hi</div>
 
-<div class="typing-dots typing-dots-left" id="dots1">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+<div class="typing-dots dots-right hide" id="dots2"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right hide" id="msg2">Hello</div>
+
+<div class="typing-dots dots-left hide" id="dots3"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left hide" id="msg3">How are you?</div>
+
+<div class="typing-dots dots-right hide" id="dots4"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right hide" id="msg4">Doing okay, yourself?</div>
+
+<div class="typing-dots dots-left hide" id="dots5"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left hide" id="msg5">Okay as well</div>
+
+<div class="insert-text hide" id="insert">7 hours later</div>
+
+<div class="typing-dots dots-right hide" id="dots6"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right hide" id="msg6">Are you usually this dry? :b</div>
+
+<div class="typing-dots dots-left hide" id="dots7"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left hide" id="msg7">Sorry, work's been pretty busy haha</div>
+
+<div class="typing-dots dots-right hide" id="dots8"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right hide" id="msg8">So what are you down to do?</div>
+
+<div class="typing-dots dots-left hide" id="dots9"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left hide" id="msg9">We can hang at the mall nearby your area, I can come after work</div>
+
+<div class="typing-dots dots-right hide" id="dots10"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right hide" id="msg10">Sounds good! ^^</div>
+
+<div class="typing-dots dots-left hide" id="dots11"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left hide" id="msg11">Okay! See you then</div>
+
+<div class="typing-dots dots-right hide" id="dots12"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right hide" id="msg12">
+  <a href="page3.html">See you soon silent boy :b</a>
 </div>
-<div class="bubble-left" id="msg1">Hi</div>
-
-<div class="typing-dots typing-dots-right" id="dots2">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg2">Hello</div>
-
-<div class="typing-dots typing-dots-left" id="dots3">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg3">How are you?</div>
-
-<div class="typing-dots typing-dots-right" id="dots4">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg4">Doing okay, yourself?</div>
-
-<div class="typing-dots typing-dots-left" id="dots5">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg5">Okay as well</div>
-
-<div class="insert-text" id="insert">7 hours later</div>
-
-<div class="typing-dots typing-dots-right" id="dots6">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg6">Are you usually this dry? :b</div>
-
-<div class="typing-dots typing-dots-left" id="dots7">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg7">Sorry, work's been pretty busy haha</div>
-
-<div class="typing-dots typing-dots-right" id="dots8">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg8">So what are you down to do?</div>
-
-<div class="typing-dots typing-dots-left" id="dots9">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg9">We can hang at the mall nearby your area, I can come after work</div>
-
-<div class="typing-dots typing-dots-right" id="dots10">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg10">Sounds good! ^^</div>
-
-<div class="typing-dots typing-dots-left" id="dots11">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg11">Okay! See you then</div>
-
-<div class="typing-dots typing-dots-right" id="dots12">
-  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg12"><a href="page3.html">See you soon silent boy :b</a></div>
 
 </div>
 
 <div class="keyboard">
   <div class="input-bar">(Click on the pink text to proceed)</div>
+
+  <div class="key-row">
+    <button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
+  </div>
+
+  <div class="key-row">
+    <button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
+  </div>
+
+  <div class="key-row">
+    <button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button><button class="key">⌫</button>
+  </div>
+
+  <div class="key-row">
+    <button class="key space">SPACE</button>
+  </div>
 </div>
 
 <script>
-/* YOUR SCRIPT UNCHANGED */
+const steps = [
+  ["dots1","msg1"],
+  ["dots2","msg2"],
+  ["dots3","msg3"],
+  ["dots4","msg4"],
+  ["dots5","msg5"],
+  ["insert",null],
+  ["dots6","msg6"],
+  ["dots7","msg7"],
+  ["dots8","msg8"],
+  ["dots9","msg9"],
+  ["dots10","msg10"],
+  ["dots11","msg11"],
+  ["dots12","msg12"]
+];
+
+let i = 0;
+
+function run() {
+  if (i >= steps.length) return;
+
+  const [dotId, msgId] = steps[i];
+
+  setTimeout(() => {
+    const dots = document.getElementById(dotId);
+    const msg = msgId ? document.getElementById(msgId) : null;
+    const insert = document.getElementById("insert");
+
+    if (dotId.includes("dots")) {
+      dots.classList.add("show");
+
+      setTimeout(() => {
+        dots.style.display = "none";
+
+        if (msg) {
+          msg.classList.add("show");
+        } else {
+          insert.classList.add("show");
+        }
+
+        window.scrollTo(0, document.body.scrollHeight);
+
+        i++;
+        run();
+      }, 600);
+
+    } else {
+      insert.classList.add("show");
+      i++;
+      run();
+    }
+
+  }, 400);
+}
+
+window.onload = run;
 </script>
 
 </body>
