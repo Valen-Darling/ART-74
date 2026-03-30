@@ -11,6 +11,8 @@
 }
 
 html, body {
+  overscroll-behavior: none;
+  scroll-behavior: auto;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -32,7 +34,7 @@ html, body {
   width: min(92%, 420px);
   margin: 0 auto;
 
-    padding-bottom: 160px;
+    padding-bottom: 260px;
 }
 
 /* BASE HIDDEN STATE */
@@ -110,6 +112,7 @@ html, body {
 .keyboard{
     position:fixed;
     bottom:0;
+    height: 200px;
     width:100%;
     background-color:#d63384;
     box-shadow:0 -2px 10px rgba(0,0,0,0.2);
@@ -269,7 +272,7 @@ function run() {
           insert.classList.add("show");
         }
 
-        window.scrollTo(0, document.body.scrollHeight);
+    
 
         i++;
         run();
