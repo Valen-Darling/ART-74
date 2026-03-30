@@ -3,15 +3,18 @@
 <head>
 <title>Mahal Kita - Page 3</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
     background-color: pink;
     margin: 0;
     font-family: Arial, sans-serif;
-    padding-bottom: 200px; 
-    overflow-y: auto;       
+    padding-bottom: 220px; /* prevents keyboard overlap */
+    overflow-x: hidden;
 }
 
+/* HEADER */
 .match{
     text-align:center;
     font-size:30px;
@@ -21,20 +24,23 @@ body {
     animation:fadeIn 1.5s forwards;
 }
 
+/* CHAT WRAPPER */
 .chat{
-    width:320px;
-    margin:20px auto;
-    padding-bottom:20px;
+    width: 90%;
+    max-width: 320px;
+    margin: 20px auto;
 }
 
+/* BUBBLES */
 .bubble-left,
 .bubble-right{
     padding:10px 14px;
     border-radius:20px;
-    width:fit-content;
+    width: fit-content;
     margin-bottom:12px;
     opacity:0;
-    max-width:240px;
+    max-width: 80%;
+    word-wrap: break-word;
 }
 
 .bubble-left{
@@ -51,6 +57,7 @@ body {
     color:black;
 }
 
+/* TYPING DOTS */
 .typing-dots{
     display:flex;
     gap:5px;
@@ -58,13 +65,8 @@ body {
     margin-bottom:5px;
 }
 
-.typing-dots-left{
-    justify-content:flex-start;
-}
-
-.typing-dots-right{
-    justify-content:flex-end;
-}
+.typing-dots-left{ justify-content:flex-start; }
+.typing-dots-right{ justify-content:flex-end; }
 
 .dot{
     width:7px;
@@ -82,11 +84,30 @@ body {
     40%{transform:translateY(-5px);}
 }
 
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
+/* IMAGE */
+.image-container, .caption {
+    text-align:center;
+    margin-top:15px;
+    opacity:0;
 }
 
+.image-container img {
+    width: 100%;
+    max-width: 280px;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.caption{
+    font-size:16px;
+    font-style:italic;
+    color:#444;
+    margin-top:10px;
+    padding: 0 10px;
+}
+
+/* KEYBOARD */
 .keyboard{
     position:fixed;
     bottom:0;
@@ -106,7 +127,7 @@ body {
     background:white;
     border-radius:25px;
     padding:10px 15px;
-    width:80%;
+    width:85%;
     color:gray;
     font-size:14px;
     text-align:center;
@@ -116,54 +137,49 @@ body {
     display:flex;
     justify-content:center;
     gap:5px;
+    flex-wrap: wrap;
 }
 
 .key{
     background:#ffb3d1;
     border:none;
     border-radius:6px;
-    padding:8px 12px;
+    padding:8px 10px;
     font-size:14px;
 }
 
 .space{
-    width:220px;
+    width:180px;
 }
 
-.image-container, .caption {
-    text-align:center;
-    margin-top:15px;
+/* ANIMATION */
+@keyframes fadeIn {
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-.image-container img {
-    max-width:30%; 
-    height:auto;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-
-.caption{
-    font-size:16px; 
-    font-style:italic;
-    color:#444;
-    margin-top:10px;
-    text-align:center;
-}
-
-
-@media (max-width:768px) {
-    .image-container img {
-        max-width:70%;
+/* MOBILE FIXES */
+@media (max-width: 480px){
+    .match{
+        font-size:24px;
     }
-    .caption {
+
+    .caption{
         font-size:14px;
     }
-}
 
+    .bubble-left,
+    .bubble-right{
+        font-size:14px;
+    }
 
-@media (max-width:480px) {
-    .image-container img {
-        max-width:70%;
+    .input-bar{
+        font-size:12px;
+    }
+
+    .key{
+        padding:6px 8px;
+        font-size:12px;
     }
 }
 </style>
@@ -178,51 +194,37 @@ body {
 <div class="typing-dots typing-dots-left" id="dots1">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg1">
-  Are you still down to hang at the arcade and then have dinner afterwards?
-</div>
+<div class="bubble-left" id="msg1">Are you still down to hang at the arcade and then have dinner afterwards?</div>
 
 <div class="typing-dots typing-dots-right" id="dots2">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg2">
-  Of course! ^^ You still want to match?
-</div>
+<div class="bubble-right" id="msg2">Of course! ^^ You still want to match?</div>
 
 <div class="typing-dots typing-dots-left" id="dots3">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg3">
-  Yeah! I was thinking of putting on this pink jersey I have
-</div>
+<div class="bubble-left" id="msg3">Yeah! I was thinking of putting on this pink jersey I have</div>
 
 <div class="typing-dots typing-dots-right" id="dots4">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg4">
-  Okies! I have this pink dress that can match with that
-</div>
+<div class="bubble-right" id="msg4">Okies! I have this pink dress that can match with that</div>
 
 <div class="typing-dots typing-dots-left" id="dots5">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg5">
-  Great! I'll pick you up after work
-</div>
+<div class="bubble-left" id="msg5">Great! I'll pick you up after work</div>
 
 <div class="typing-dots typing-dots-right" id="dots6">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-right" id="msg6">
-  See you soon~ ^^
-</div>
+<div class="bubble-right" id="msg6">See you soon~ ^^</div>
 
 <div class="typing-dots typing-dots-left" id="dots7">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
 </div>
-<div class="bubble-left" id="msg7">
-  You ready to lose multiple times? :P
-</div>
+<div class="bubble-left" id="msg7">You ready to lose multiple times? :P</div>
 
 <div class="typing-dots typing-dots-right" id="dots8">
   <div class="dot"></div><div class="dot"></div><div class="dot"></div>
@@ -233,10 +235,11 @@ body {
 
 </div> 
 
-<div class="image-container" id="page3Image" style="opacity:0;">
+<div class="image-container" id="page3Image">
   <img src="../images/matt_page3.jpg" alt="Pink-matching Date">
 </div>
-<div class="caption" id="page3Caption" style="opacity:0;">
+
+<div class="caption" id="page3Caption">
   Pink-matching Date ^^💞💮 Also I did lose to a lot of the games against him :')
 </div>
 
@@ -286,24 +289,8 @@ messages.forEach((item,index)=>{
         document.getElementById(item.msg).style.opacity=1;
 
         if(index === messages.length -1){
-            let img = document.getElementById('page3Image');
-            let caption = document.getElementById('page3Caption');
-            let opacityImg = 0;
-            let opacityCaption = 0;
-
-            let fadeInterval = setInterval(()=>{
-                if(opacityImg >=1 && opacityCaption >=1){
-                    clearInterval(fadeInterval);
-                }
-                if(opacityImg <1){
-                    opacityImg +=0.05;
-                    img.style.opacity = opacityImg;
-                }
-                if(opacityCaption <1){
-                    opacityCaption +=0.05;
-                    caption.style.opacity = opacityCaption;
-                }
-            },30);
+            document.getElementById('page3Image').style.opacity = 1;
+            document.getElementById('page3Caption').style.opacity = 1;
         }
 
     },delay);
