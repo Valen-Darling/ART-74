@@ -2,87 +2,140 @@
 <html>
 <head>
 <title>Countdown 2026</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+
 body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
+background-color: black;
+color: white;
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+flex-direction: column;
+overflow: hidden;
 }
 
+/* Countdown */
 #countdown {
-    font-size: 80px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+font-size: 70px;
+text-align: center;
+opacity: 0;
+transition: opacity 0.3s ease;
 }
 
-#videoContainer {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+/* IMAGE SCREEN */
+#imageContainer {
+display: none;
+position: relative;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
 }
 
-video {
-    width: 500px;
-    max-width: 90%;
-    height: auto;
-    display: block;
-    background: black;
+/* Image */
+#finalImage {
+width: 100%;
+max-width: 450px;
+border-radius: 12px;
+box-shadow: 0 0 25px rgba(255,255,255,0.15);
+cursor: pointer;
 }
+
+/* TITLE ON IMAGE */
+.titleOverlay {
+position: absolute;
+top: 20px;
+width: 100%;
+text-align: center;
+font-size: 26px;
+font-weight: bold;
+text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+pointer-events: none;
 }
+
+/* CAPTION */
+.captionOverlay {
+position: absolute;
+bottom: 20px;
+width: 100%;
+text-align: center;
+font-size: 14px;
+padding: 0 20px;
+color: #f2f2f2;
+text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+#countdown { font-size: 50px; }
+.titleOverlay { font-size: 22px; }
+.captionOverlay { font-size: 13px; }
+}
+
 </style>
 </head>
+
 <body>
 
 <div id="countdown">10</div>
 
-<div id="videoContainer">
-    <video id="video" autoplay muted playsinline controls>
-        <source src="video/matt_page10.mp4" type="video/mp4">
-    </video>
+<div id="imageContainer">
+
+<div class="titleOverlay">Happy New Year!</div>
+
+<img id="finalImage" src="../images/matt_page10.jpg" alt="final image">
+
+<div class="captionOverlay">
+Ended 2025, and starting 2026 with you 💞 (click on image to proceed)
+</div>
+
 </div>
 
 <script>
+
 const countdownEl = document.getElementById('countdown');
-const videoContainer = document.getElementById('videoContainer');
-const video = document.getElementById('video');
+const imageContainer = document.getElementById('imageContainer');
+const finalImage = document.getElementById('finalImage');
 
 let number = 10;
+let interval = 900;
 
 function showNextNumber() {
-    if (number > 0) {
-        countdownEl.textContent = number;
-        countdownEl.style.opacity = 1;
 
-        setTimeout(() => {
-            countdownEl.style.opacity = 0;
-            number--;
-            setTimeout(showNextNumber, 500);
-        }, 1000);
+if (number > 0) {
 
-    } else {
-        countdownEl.style.display = "none";
-        videoContainer.style.display = "flex";
+countdownEl.textContent = number;
+countdownEl.style.opacity = 1;
 
-        video.play().catch(err => {
-            console.log("Autoplay blocked:", err);
-        });
+setTimeout(() => {
+countdownEl.style.opacity = 0;
+number--;
+setTimeout(showNextNumber, 250);
+}, interval);
 
-        video.onended = () => {
-            window.location.href = "page11.html";
-        };
-    }
+} else {
+
+countdownEl.style.display = "none";
+imageContainer.style.display = "flex";
+
 }
 
+}
+
+/* click anywhere on image to continue */
+finalImage.addEventListener("click", () => {
+window.location.href = "page11.html";
+});
+
 showNextNumber();
+
 </script>
 
 </body>

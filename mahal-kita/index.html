@@ -4,14 +4,16 @@
 <head>
 <title>Mahal Kita</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
     background-color: pink;
     margin: 0;
     text-align: center;
+    overflow-x:hidden;
 }
-
 
 .title-box{
     margin-top: 120px;
@@ -21,15 +23,16 @@ body{
     border: 3px solid black;
 }
 
-
+/* FIX: prevent oversized title on mobile */
 .title-box h1{
     font-family: "Brush Script MT", cursive;
     color: black;
     font-size: 100px;
     margin: 0;
+    line-height:1;
 }
 
-
+/* BUTTONS */
 .button{
     display: block;
     width: 200px;
@@ -43,10 +46,29 @@ body{
     background-color: white;
 }
 
-
 .button:hover{
     background-color: black;
     color: white;
+}
+
+/* 📱 MOBILE FIXES */
+@media (max-width: 600px) {
+
+    .title-box{
+        margin-top: 80px;
+        padding: 30px 25px;
+        width: 85%;
+    }
+
+    .title-box h1{
+        font-size: 60px;
+    }
+
+    .button{
+        width: 70%;
+        font-size: 18px;
+        padding: 12px;
+    }
 }
 
 </style>
