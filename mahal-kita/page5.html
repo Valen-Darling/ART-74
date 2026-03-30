@@ -3,33 +3,32 @@
 <head>
 <title>Mahal Kita - Page 5</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
-background-color: pink;
+background-color:pink;
 margin:0;
-font-family: Arial, sans-serif;
+font-family:Arial,sans-serif;
+padding-bottom:220px;
 }
-
 
 .match{
 text-align:center;
 font-size:30px;
-font-family:"Brush Script MT", cursive;
+font-family:"Brush Script MT",cursive;
 margin-top:50px;
 opacity:0;
 animation:fadeIn 1.5s forwards;
 }
 
-
-
 .chat{
-width:320px;
+width:90%;
+max-width:420px;
 margin:20px auto;
-padding-bottom:250px;
+padding-bottom:20px;
 }
-
-
 
 .bubble-left,
 .bubble-right{
@@ -38,18 +37,15 @@ border-radius:20px;
 width:fit-content;
 margin-bottom:12px;
 opacity:0;
-max-width:240px;
+max-width:260px;
 }
 
-.bubble-left{
-background:white;
-}
+.bubble-left{ background:white; }
 
 .bubble-right{
 background:#ffd6e7;
 margin-left:auto;
 }
-
 
 .bubble-right a{
 text-decoration:none;
@@ -57,8 +53,49 @@ color:black;
 display:block;
 }
 
+/* IMAGE INSIDE CHAT */
+.chat-image{
+margin-top:8px;
+border-radius:12px;
+max-width:180px;
+width:100%;
+box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
 
+/* FINAL IMAGE */
+.final-image-container{
+text-align:center;
+margin-top:25px;
+opacity:0;
+}
 
+.final-image-container img{
+max-width:20%;
+min-width:160px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.caption{
+text-align:center;
+font-size:15px;
+font-style:italic;
+color:#444;
+margin-top:10px;
+opacity:0;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+.final-image-container img{
+max-width:60%;
+}
+.caption{
+font-size:14px;
+}
+}
+
+/* TYPING */
 .typing-dots{
 display:flex;
 gap:5px;
@@ -66,13 +103,8 @@ opacity:0;
 margin-bottom:5px;
 }
 
-.typing-dots-left{
-justify-content:flex-start;
-}
-
-.typing-dots-right{
-justify-content:flex-end;
-}
+.typing-dots-left{ justify-content:flex-start; }
+.typing-dots-right{ justify-content:flex-end; }
 
 .dot{
 width:7px;
@@ -95,8 +127,7 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
-
-
+/* KEYBOARD */
 .keyboard{
 position:fixed;
 bottom:0;
@@ -112,8 +143,6 @@ padding:5px 0;
 z-index:10;
 }
 
-
-
 .input-bar{
 background:white;
 border-radius:25px;
@@ -123,8 +152,6 @@ color:gray;
 font-size:14px;
 text-align:center;
 }
-
-
 
 .key-row{
 display:flex;
@@ -140,9 +167,7 @@ padding:8px 12px;
 font-size:14px;
 }
 
-.space{
-width:220px;
-}
+.space{ width:220px; }
 
 </style>
 </head>
@@ -153,129 +178,67 @@ width:220px;
 
 <div class="chat">
 
-<div class="typing-dots typing-dots-left" id="dots1">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg1">
-Would you be free to hangout after your class?
-</div>
+<div class="typing-dots typing-dots-left" id="dots1"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg1">Would you be free to hangout after your class?</div>
 
-<div class="typing-dots typing-dots-right" id="dots2">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg2">
-I should be! I don't have any assignments I need to do :b
-</div>
+<div class="typing-dots typing-dots-right" id="dots2"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg2">I should be! I don't have any assignments I need to do :b</div>
 
-<div class="typing-dots typing-dots-left" id="dots3">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg3">
-Great! Do you think we could match again?
-</div>
+<div class="typing-dots typing-dots-left" id="dots3"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg3">Great! Do you think we could match again?</div>
 
-<div class="typing-dots typing-dots-right" id="dots4">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg4">
-Of course!! What color did you think of doing?
-</div>
+<div class="typing-dots typing-dots-right" id="dots4"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg4">Of course!! What color did you think of doing?</div>
 
-<div class="typing-dots typing-dots-left" id="dots5">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg5">
-What's your outfit right now?
-</div>
+<div class="typing-dots typing-dots-left" id="dots5"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg5">What's your outfit right now?</div>
 
-<div class="typing-dots typing-dots-right" id="dots6">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-right" id="dots6"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-right" id="msg6">
 I'm wearing all black today, let me send you a photo
+
+<img class="chat-image" src="../images/jj_page5.jpg" alt="outfit photo">
 </div>
 
-<div class="typing-dots typing-dots-left" id="dots7">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-left" id="dots7"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-left" id="msg7">
 Oh! I have the perfect shirt to match with that, I bought it yesterday when I went out.
 </div>
 
-<div class="typing-dots typing-dots-left" id="dots8">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-left" id="dots8"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-left" id="msg8">
 I'll pick you up after my work, let me know when you are at the Bart station.
 </div>
 
-<div class="typing-dots typing-dots-right" id="dots9">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-right" id="dots9"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-right" id="msg9">
 <a href="page6.html">Okies~ Can't wait to see you ^^</a>
 </div>
 
 </div>
 
+<!-- FINAL IMAGE -->
+<div class="final-image-container" id="finalImg">
+<img src="../images/matt_page5.jpg" alt="final photo">
+<div class="caption" id="caption">
+You know, this also became one of my favorite photos of us
+</div>
+</div>
+
 <div class="keyboard">
 
-<div class="input-bar">
-(Click on the pink text to proceed)
+<div class="input-bar">(Click on the pink text to proceed)</div>
+
+<div class="key-row">
+<button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
 </div>
 
 <div class="key-row">
-<button class="key">Q</button>
-<button class="key">W</button>
-<button class="key">E</button>
-<button class="key">R</button>
-<button class="key">T</button>
-<button class="key">Y</button>
-<button class="key">U</button>
-<button class="key">I</button>
-<button class="key">O</button>
-<button class="key">P</button>
+<button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
 </div>
 
 <div class="key-row">
-<button class="key">A</button>
-<button class="key">S</button>
-<button class="key">D</button>
-<button class="key">F</button>
-<button class="key">G</button>
-<button class="key">H</button>
-<button class="key">J</button>
-<button class="key">K</button>
-<button class="key">L</button>
-</div>
-
-<div class="key-row">
-<button class="key">Z</button>
-<button class="key">X</button>
-<button class="key">C</button>
-<button class="key">V</button>
-<button class="key">B</button>
-<button class="key">N</button>
-<button class="key">M</button>
-<button class="key">⌫</button>
+<button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button><button class="key">⌫</button>
 </div>
 
 <div class="key-row">
@@ -298,22 +261,35 @@ const messages=[
 {dots:'dots9',msg:'msg9'}
 ];
 
-let delay=1000;
+let delay=500;
 
-messages.forEach(item=>{
+messages.forEach((item,index)=>{
 
 setTimeout(()=>{
 document.getElementById(item.dots).style.opacity=1;
 },delay);
 
-delay+=1000;
+delay+=550;
 
 setTimeout(()=>{
 document.getElementById(item.dots).style.opacity=0;
 document.getElementById(item.msg).style.opacity=1;
+
+if(index===messages.length-1){
+let img=document.getElementById("finalImg");
+let cap=document.getElementById("caption");
+
+img.style.transition="opacity 1.5s ease";
+img.style.opacity=1;
+
+setTimeout(()=>{
+cap.style.opacity=1;
+},800);
+}
+
 },delay);
 
-delay+=1000;
+delay+=550;
 
 });
 

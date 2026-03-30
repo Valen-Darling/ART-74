@@ -3,25 +3,26 @@
 <head>
 <title>Mahal Kita - Page 7</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
-background-color: pink;
+background-color:pink;
 margin:0;
-font-family: Arial, sans-serif;
+font-family:Arial, sans-serif;
+padding-bottom:320px;
 }
 
-
+/* HEADER */
 .match{
 text-align:center;
-font-size:30px;
+font-size:28px;
 font-family:"Brush Script MT", cursive;
-margin-top:50px;
+margin-top:40px;
 opacity:0;
-animation:fadeIn 1.5s forwards;
+animation:fadeIn 1s forwards;
 }
-
-
 
 .insert{
 text-align:center;
@@ -29,36 +30,31 @@ font-size:13px;
 font-style:italic;
 color:#444;
 margin-top:5px;
-margin-bottom:20px;
+margin-bottom:15px;
 opacity:0;
 animation:fadeIn 1s forwards;
-animation-delay:2s;
+animation-delay:1s;
 }
 
-
-
+/* CHAT */
 .chat{
-width:320px;
+width:90%;
+max-width:340px;
 margin:20px auto;
-padding-bottom:250px;
 }
-
-
 
 .bubble-left,
 .bubble-right{
 padding:10px 14px;
 border-radius:20px;
 width:fit-content;
-margin-bottom:12px;
+margin-bottom:10px;
 opacity:0;
 max-width:240px;
+font-size:14px;
 }
 
-.bubble-left{
-background:white;
-}
-
+.bubble-left{background:white;}
 .bubble-right{
 background:#ffd6e7;
 margin-left:auto;
@@ -70,8 +66,7 @@ color:black;
 display:block;
 }
 
-
-
+/* typing dots */
 .typing-dots{
 display:flex;
 gap:5px;
@@ -79,24 +74,19 @@ opacity:0;
 margin-bottom:5px;
 }
 
-.typing-dots-left{
-justify-content:flex-start;
-}
-
-.typing-dots-right{
-justify-content:flex-end;
-}
+.typing-dots-left{justify-content:flex-start;}
+.typing-dots-right{justify-content:flex-end;}
 
 .dot{
 width:7px;
 height:7px;
 background:gray;
 border-radius:50%;
-animation:bounce 1s infinite;
+animation:bounce 0.7s infinite;
 }
 
-.dot:nth-child(2){animation-delay:0.2s;}
-.dot:nth-child(3){animation-delay:0.4s;}
+.dot:nth-child(2){animation-delay:0.15s;}
+.dot:nth-child(3){animation-delay:0.3s;}
 
 @keyframes bounce{
 0%,80%,100%{transform:translateY(0);}
@@ -108,8 +98,30 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
+/* IMAGE (hidden at start) */
+.image-section{
+text-align:center;
+margin-top:25px;
+opacity:0;
+transition:opacity 1s ease;
+}
 
+.image-section img{
+width:70%;
+max-width:220px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
 
+.caption{
+font-size:13px;
+margin-top:10px;
+color:#333;
+font-style:italic;
+padding:0 20px;
+}
+
+/* KEYBOARD */
 .keyboard{
 position:fixed;
 bottom:0;
@@ -125,8 +137,6 @@ padding:5px 0;
 z-index:10;
 }
 
-
-
 .input-bar{
 background:white;
 border-radius:25px;
@@ -137,24 +147,36 @@ font-size:14px;
 text-align:center;
 }
 
-
-
 .key-row{
 display:flex;
 justify-content:center;
 gap:5px;
+flex-wrap:wrap;
 }
 
 .key{
 background:#ffb3d1;
 border:none;
 border-radius:6px;
-padding:8px 12px;
-font-size:14px;
+padding:8px 10px;
+font-size:13px;
 }
 
+.space{width:180px;}
+
+/* MOBILE */
+@media (max-width:480px){
+.bubble-left,.bubble-right{
+max-width:200px;
+font-size:13px;
+}
+.key{
+padding:6px 8px;
+font-size:12px;
+}
 .space{
-width:220px;
+width:140px;
+}
 }
 
 </style>
@@ -167,169 +189,72 @@ width:220px;
 
 <div class="chat">
 
-<div class="typing-dots typing-dots-left" id="dots1">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg1">
-You know what we should do? We should go on a proper date again. Work's been a lot, and you should take a break from school
-</div>
+<div class="typing-dots typing-dots-left" id="dots1"></div>
+<div class="bubble-left" id="msg1">You know what we should do? We should go on a proper date again. Work's been a lot, and you should take a break from school</div>
 
-<div class="typing-dots typing-dots-right" id="dots2">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg2">
-I'm down! What did you want to do? :0
-</div>
+<div class="typing-dots typing-dots-right" id="dots2"></div>
+<div class="bubble-right" id="msg2">I'm down! What did you want to do? :0</div>
 
-<div class="typing-dots typing-dots-left" id="dots3">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg3">
-Hmmmm...actually, I wanna surprise you. Let me work my little magic ;)
-</div>
+<div class="typing-dots typing-dots-left" id="dots3"></div>
+<div class="bubble-left" id="msg3">Hmmmm...actually, I wanna surprise you. Let me work my little magic ;)</div>
 
-<div class="typing-dots typing-dots-right" id="dots4">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg4">
-Aiiiish, don't go too much pleaase 😭
-</div>
+<div class="typing-dots typing-dots-right" id="dots4"></div>
+<div class="bubble-right" id="msg4">Aiiiish, don't go too much pleaase 😭</div>
 
-<div class="typing-dots typing-dots-left" id="dots5">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg5">
-Can't promise :P But more importantly, outfits-- wear your Kirby sweater, I wanna match it with my Mario gear 😎
-</div>
+<div class="typing-dots typing-dots-left" id="dots5"></div>
+<div class="bubble-left" id="msg5">Can't promise :P But more importantly, outfits-- wear your Kirby sweater, I wanna match it with my Mario gear 😎</div>
 
-<div class="typing-dots typing-dots-right" id="dots6">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg6">
-Gear?
-</div>
+<div class="typing-dots typing-dots-right" id="dots6"></div>
+<div class="bubble-right" id="msg6">Gear?</div>
 
-<div class="typing-dots typing-dots-left" id="dots7">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg7">
-I have a Mario shirt and jacket
-</div>
+<div class="typing-dots typing-dots-left" id="dots7"></div>
+<div class="bubble-left" id="msg7">I have a Mario shirt and jacket</div>
 
-<div class="typing-dots typing-dots-right" id="dots8">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg8">
-...
-</div>
+<div class="typing-dots typing-dots-right" id="dots8"></div>
+<div class="bubble-right" id="msg8">...</div>
 
-<div class="typing-dots typing-dots-right" id="dots9">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg9">
-O.A. 🤣
-</div>
+<div class="typing-dots typing-dots-right" id="dots9"></div>
+<div class="bubble-right" id="msg9">O.A. 🤣</div>
 
-<div class="insert">
-*OA = Over-Acting, a slang commonly used among Filipinos*
-</div>
+<div class="insert">*OA = Over-Acting, a slang commonly used among Filipinos*</div>
 
-<div class="typing-dots typing-dots-right" id="dots10">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg10">
-jkjk I love youuu
-</div>
+<div class="typing-dots typing-dots-right" id="dots10"></div>
+<div class="bubble-right" id="msg10">jkjk I love youuu</div>
 
-<div class="typing-dots typing-dots-left" id="dots11">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg11">
-Uh huh -_-
-</div>
+<div class="typing-dots typing-dots-left" id="dots11"></div>
+<div class="bubble-left" id="msg11">Uh huh -_-</div>
 
-<div class="typing-dots typing-dots-left" id="dots12">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg12">
-We can work out more on the details later! I need to get back to work. I'll talk to you later, I love you 💞
-</div>
+<div class="typing-dots typing-dots-left" id="dots12"></div>
+<div class="bubble-left" id="msg12">We can work out more on the details later! I need to get back to work. I'll talk to you later, I love you 💞</div>
 
-<div class="typing-dots typing-dots-right" id="dots13">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-right" id="dots13"></div>
 <div class="bubble-right" id="msg13">
 <a href="page8.html">I love you too, my love ^^ 💞✨</a>
 </div>
 
 </div>
 
+<!-- IMAGE -->
+<div class="image-section" id="finalImage">
+<img src="../images/matt_page7.jpg" alt="image">
+<div class="caption">This honestly was one of my favorite outfit themes we've done :b</div>
+</div>
+
+<!-- KEYBOARD -->
 <div class="keyboard">
 
-<div class="input-bar">
-(Click on the pink text to proceed)
+<div class="input-bar">(Click on the pink text to proceed)</div>
+
+<div class="key-row">
+<button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
 </div>
 
 <div class="key-row">
-<button class="key">Q</button>
-<button class="key">W</button>
-<button class="key">E</button>
-<button class="key">R</button>
-<button class="key">T</button>
-<button class="key">Y</button>
-<button class="key">U</button>
-<button class="key">I</button>
-<button class="key">O</button>
-<button class="key">P</button>
+<button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
 </div>
 
 <div class="key-row">
-<button class="key">A</button>
-<button class="key">S</button>
-<button class="key">D</button>
-<button class="key">F</button>
-<button class="key">G</button>
-<button class="key">H</button>
-<button class="key">J</button>
-<button class="key">K</button>
-<button class="key">L</button>
-</div>
-
-<div class="key-row">
-<button class="key">Z</button>
-<button class="key">X</button>
-<button class="key">C</button>
-<button class="key">V</button>
-<button class="key">B</button>
-<button class="key">N</button>
-<button class="key">M</button>
-<button class="key">⌫</button>
+<button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button><button class="key">⌫</button>
 </div>
 
 <div class="key-row">
@@ -340,40 +265,34 @@ We can work out more on the details later! I need to get back to work. I'll talk
 
 <script>
 
-const messages=[
-{dots:'dots1',msg:'msg1'},
-{dots:'dots2',msg:'msg2'},
-{dots:'dots3',msg:'msg3'},
-{dots:'dots4',msg:'msg4'},
-{dots:'dots5',msg:'msg5'},
-{dots:'dots6',msg:'msg6'},
-{dots:'dots7',msg:'msg7'},
-{dots:'dots8',msg:'msg8'},
-{dots:'dots9',msg:'msg9'},
-{dots:'dots10',msg:'msg10'},
-{dots:'dots11',msg:'msg11'},
-{dots:'dots12',msg:'msg12'},
-{dots:'dots13',msg:'msg13'}
+const messages = [
+"dots1","dots2","dots3","dots4","dots5","dots6",
+"dots7","dots8","dots9","dots10","dots11","dots12","dots13"
 ];
 
-let delay=1000;
+let delay = 700;
 
-messages.forEach(item=>{
+messages.forEach((id, index) => {
 
-setTimeout(()=>{
-document.getElementById(item.dots).style.opacity=1;
-},delay);
+setTimeout(() => {
+document.getElementById(id).style.opacity = 1;
+}, delay);
 
-delay+=1000;
+delay += 400;
 
-setTimeout(()=>{
-document.getElementById(item.dots).style.opacity=0;
-document.getElementById(item.msg).style.opacity=1;
-},delay);
+setTimeout(() => {
+document.getElementById(id).style.opacity = 0;
+document.getElementById("msg" + (index + 1)).style.opacity = 1;
+}, delay);
 
-delay+=1000;
+delay += 450;
 
 });
+
+/* SHOW IMAGE AFTER CHAT FINISHES */
+setTimeout(() => {
+document.getElementById("finalImage").style.opacity = 1;
+}, delay + 300);
 
 </script>
 

@@ -3,34 +3,36 @@
 <head>
 <title>Mahal Kita - Page 6</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
-background-color: pink;
+background-color:pink;
 margin:0;
-font-family: Arial, sans-serif;
+font-family:Arial,sans-serif;
+padding-bottom:260px;
 }
 
-
+/* TITLE */
 .match{
 text-align:center;
 font-size:30px;
 font-family:"Brush Script MT", cursive;
 margin-top:50px;
 opacity:0;
-animation:fadeIn 1.5s forwards;
+animation:fadeIn 1.2s forwards;
 }
 
-
-
+/* CHAT */
 .chat{
-width:320px;
+width:90%;
+max-width:420px;
 margin:20px auto;
-padding-bottom:250px;
+padding-bottom:20px;
 }
 
-
-
+/* BUBBLES */
 .bubble-left,
 .bubble-right{
 padding:10px 14px;
@@ -38,13 +40,12 @@ border-radius:20px;
 width:fit-content;
 margin-bottom:12px;
 opacity:0;
-max-width:240px;
+max-width:260px;
+word-wrap:break-word;
+font-size:15px;
 }
 
-.bubble-left{
-background:white;
-}
-
+.bubble-left{ background:white; }
 .bubble-right{
 background:#ffd6e7;
 margin-left:auto;
@@ -56,8 +57,7 @@ color:black;
 display:block;
 }
 
-
-
+/* TYPING */
 .typing-dots{
 display:flex;
 gap:5px;
@@ -65,13 +65,8 @@ opacity:0;
 margin-bottom:5px;
 }
 
-.typing-dots-left{
-justify-content:flex-start;
-}
-
-.typing-dots-right{
-justify-content:flex-end;
-}
+.typing-dots-left{ justify-content:flex-start; }
+.typing-dots-right{ justify-content:flex-end; }
 
 .dot{
 width:7px;
@@ -94,8 +89,33 @@ from{opacity:0;}
 to{opacity:1;}
 }
 
+/* FINAL IMAGE */
+.final-image-container{
+text-align:center;
+margin-top:25px;
+opacity:0;
+transition:opacity 1.5s ease;
+}
 
+.final-image-container img{
+width:60%;
+max-width:220px;
+min-width:160px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
 
+.caption{
+text-align:center;
+font-size:15px;
+font-style:italic;
+color:#444;
+margin-top:10px;
+opacity:0;
+transition:opacity 1s ease;
+}
+
+/* KEYBOARD */
 .keyboard{
 position:fixed;
 bottom:0;
@@ -111,8 +131,6 @@ padding:5px 0;
 z-index:10;
 }
 
-
-
 .input-bar{
 background:white;
 border-radius:25px;
@@ -123,12 +141,11 @@ font-size:14px;
 text-align:center;
 }
 
-
-
 .key-row{
 display:flex;
 justify-content:center;
 gap:5px;
+flex-wrap:wrap;
 }
 
 .key{
@@ -143,6 +160,13 @@ font-size:14px;
 width:220px;
 }
 
+/* MOBILE */
+@media (max-width:768px){
+.final-image-container img{
+width:70%;
+}
+}
+
 </style>
 </head>
 
@@ -152,187 +176,109 @@ width:220px;
 
 <div class="chat">
 
-<div class="typing-dots typing-dots-left" id="dots1">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg1">
-I'm about to get ready!
-</div>
+<div class="typing-dots typing-dots-left" id="dots1"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg1">I'm about to get ready!</div>
 
-<div class="typing-dots typing-dots-right" id="dots2">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg2">
-Me too! I'm so excited to go to Valleyfair! 🤩
-</div>
+<div class="typing-dots typing-dots-right" id="dots2"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg2">Me too! I'm so excited to go to Valleyfair! 🤩</div>
 
-<div class="typing-dots typing-dots-left" id="dots3">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg3">
-Same, make sure you dress up REAL good!
-</div>
+<div class="typing-dots typing-dots-left" id="dots3"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg3">Same, make sure you dress up REAL good!</div>
 
-<div class="typing-dots typing-dots-right" id="dots4">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg4">
-You know that's the one thing I'm good at 🤭
-</div>
+<div class="typing-dots typing-dots-right" id="dots4"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg4">You know that's the one thing I'm good at 🤭</div>
 
-<div class="typing-dots typing-dots-left" id="dots5">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg5">
-I'll let you know when I'm on my way
-</div>
+<div class="typing-dots typing-dots-left" id="dots5"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg5">I'll let you know when I'm on my way</div>
 
-<div class="typing-dots typing-dots-left" id="dots6">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg6">
-Also, let me spoil you for today 🙂‍↕️
-</div>
+<div class="typing-dots typing-dots-left" id="dots6"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg6">Also, let me spoil you for today 🙂‍↕️</div>
 
-<div class="typing-dots typing-dots-right" id="dots7">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg7">
-Nuuuuu~ U dun have to 🥺
-</div>
+<div class="typing-dots typing-dots-right" id="dots7"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg7">Nuuuuu~ U dun have to 🥺</div>
 
-<div class="typing-dots typing-dots-left" id="dots8">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-left" id="msg8">
-Yessss, let me handle everything today, trust.
-</div>
+<div class="typing-dots typing-dots-left" id="dots8"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-left" id="msg8">Yessss, let me handle everything today, trust.</div>
 
-<div class="typing-dots typing-dots-right" id="dots9">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-<div class="bubble-right" id="msg9">
-Mmmmm, still don't agree with this -_-
-</div>
+<div class="typing-dots typing-dots-right" id="dots9"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="bubble-right" id="msg9">Mmmmm, still don't agree with this -_-</div>
 
-<div class="typing-dots typing-dots-left" id="dots10">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-left" id="dots10"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-left" id="msg10">
 Too bad :P I'm heading over now! I'll call you when I'm close
 </div>
 
-<div class="typing-dots typing-dots-right" id="dots11">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
+<div class="typing-dots typing-dots-right" id="dots11"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 <div class="bubble-right" id="msg11">
 <a href="page7.html">Okies~ See you~!!</a>
 </div>
 
 </div>
 
+<!-- FINAL IMAGE -->
+<div class="final-image-container" id="finalImg">
+<img src="../images/matt_page6.jpg" alt="final moment">
+<div class="caption" id="caption">
+And now I can finally say... I love you 💞✨
+</div>
+</div>
+
 <div class="keyboard">
+<div class="input-bar">(Click on the pink text to proceed)</div>
 
-<div class="input-bar">
-(Click on the pink text to proceed)
+<div class="key-row">
+<button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
 </div>
 
 <div class="key-row">
-<button class="key">Q</button>
-<button class="key">W</button>
-<button class="key">E</button>
-<button class="key">R</button>
-<button class="key">T</button>
-<button class="key">Y</button>
-<button class="key">U</button>
-<button class="key">I</button>
-<button class="key">O</button>
-<button class="key">P</button>
+<button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
 </div>
 
 <div class="key-row">
-<button class="key">A</button>
-<button class="key">S</button>
-<button class="key">D</button>
-<button class="key">F</button>
-<button class="key">G</button>
-<button class="key">H</button>
-<button class="key">J</button>
-<button class="key">K</button>
-<button class="key">L</button>
-</div>
-
-<div class="key-row">
-<button class="key">Z</button>
-<button class="key">X</button>
-<button class="key">C</button>
-<button class="key">V</button>
-<button class="key">B</button>
-<button class="key">N</button>
-<button class="key">M</button>
-<button class="key">⌫</button>
+<button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button><button class="key">⌫</button>
 </div>
 
 <div class="key-row">
 <button class="key space">SPACE</button>
 </div>
-
 </div>
 
 <script>
 
 const messages=[
-{dots:'dots1',msg:'msg1'},
-{dots:'dots2',msg:'msg2'},
-{dots:'dots3',msg:'msg3'},
-{dots:'dots4',msg:'msg4'},
-{dots:'dots5',msg:'msg5'},
-{dots:'dots6',msg:'msg6'},
-{dots:'dots7',msg:'msg7'},
-{dots:'dots8',msg:'msg8'},
-{dots:'dots9',msg:'msg9'},
-{dots:'dots10',msg:'msg10'},
-{dots:'dots11',msg:'msg11'}
-];
+"dots1","dots2","dots3","dots4","dots5",
+"dots6","dots7","dots8","dots9","dots10","dots11"
+].map((d,i)=>({dots:d,msg:"msg"+(i+1)}));
 
-let delay=1000;
+let delay=500;
 
-messages.forEach(item=>{
+messages.forEach((item)=>{
 
 setTimeout(()=>{
 document.getElementById(item.dots).style.opacity=1;
 },delay);
 
-delay+=1000;
+delay+=550;
 
 setTimeout(()=>{
 document.getElementById(item.dots).style.opacity=0;
 document.getElementById(item.msg).style.opacity=1;
+
+if(item.msg==="msg11"){
+let img=document.getElementById("finalImg");
+let cap=document.getElementById("caption");
+
+setTimeout(()=>{
+img.style.opacity=1;
+setTimeout(()=>{
+cap.style.opacity=1;
+},700);
+},500);
+}
+
 },delay);
 
-delay+=1000;
+delay+=550;
 
 });
 
