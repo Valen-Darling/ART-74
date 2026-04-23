@@ -1,0 +1,161 @@
+var img;
+var initials ='mp'; // your initials
+var choice = '1'; // starting choice, so it is not empty
+var lastscreenshot=61; // last screenshot never taken
+
+function preload() {
+  img = loadImage ('bubble_wand.png');
+}
+
+
+function setup() {
+createCanvas(600, 600);  // canvas size
+drawBackground ();// use our background screen color
+}
+
+function drawBackground () {
+  background(143, 255, 246);
+//hills
+stroke (46, 105, 29);
+strokeWeight (5);
+fill (79,179,52);
+arc(150, 600, 500, 400,  PI, TWO_PI);
+arc(500, 650, 500, 400,  PI, TWO_PI);
+arc(150, 600, 300, 250,  PI, TWO_PI);
+
+//sun
+fill (255,204,0);
+noStroke ();
+ellipse (500, 100, 125, 125);
+fill (255,153,0);
+ellipse (500, 100, 100, 100);
+fill (255,255,102);
+ellipse (500, 100, 80,80);
+
+ //Cloud
+fill(255);
+noStroke();
+ellipse(130, 90, 100, 100); //up
+ellipse(80, 110, 100, 100); //left
+ellipse(175, 110, 100, 100); //right
+ellipse(130, 135, 100, 100); //down
+ellipse(400, 200, 100, 100); //up2
+ellipse(330, 230, 100, 100); //left2
+ellipse(470, 230, 100, 100); //right2
+ellipse(400, 250, 100, 100); //down2
+
+//bubble wand
+image (img,0,400,180,180);
+}
+
+function draw() {
+  if (keyIsPressed) {
+    if (key !== 'x' && key !== 'X'){
+    choice = key;}// set choice to the key that was pressed
+    clear_print(); // check to see if it is clear screen or save image
+  }
+  if (mouseIsPressed){
+    newkeyChoice(choice);  // if the mouse is pressed call newkeyChoice
+  }
+}
+
+function newkeyChoice(toolChoice) { //toolchoice is the key that was pressed
+  // the key mapping if statements that you can change to do anything you want.
+  // just make sure each key option has the a stroke or fill and then what type of 
+  // graphic function
+
+ if (toolChoice == '1' ) {  // first tool
+   fill (255, 138, 138, 10);
+  stroke (232, 67, 67);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 80, 80);
+    
+  } else if (toolChoice == '2') { // second tool
+     fill (255, 199, 115, 10);
+  stroke (255, 170, 43);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 100, 100);
+    
+  } else if (toolChoice == '3') { // third tool
+      fill (251, 255, 115, 10);
+  stroke (247, 252, 50);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 50, 50);
+    
+  } else if (toolChoice == '4') {
+      fill (182, 255, 153, 10);
+  stroke (113, 227, 68);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 150, 150);
+
+    
+  } else if (key == '5') { // this tool calls a function
+     fill (104, 202, 252, 10);
+  stroke (42, 180, 250);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 200, 200);
+    
+  } else if (toolChoice == '6') {
+     fill (207, 159, 252, 10);
+  stroke (163, 76, 245);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 40, 40);
+
+  } else if (toolChoice == '7') {
+      fill (250, 150, 250, 10);
+  stroke (240, 77, 240);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 100, 100);
+
+  } else if (toolChoice == '8') {
+ fill (191, 132, 29, 10);
+  stroke (128, 84, 9);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 100, 100);
+    
+  } else if (toolChoice == '9') {
+  fill (255,255,255,30);
+  stroke (207);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 30, 30);
+
+  } else if (toolChoice == '0') {
+      fill (102,30);
+  stroke (0);
+  strokeWeight (1);
+    circle(mouseX, mouseY, 30, 30);
+
+   
+  }
+ }
+ 
+function testbox(r, g, b) {
+// this is a test function that will show you how you can put your own functions into the sketch
+  x = mouseX;
+  y = mouseY;
+  fill(r, g, b);
+  rect(x-50, y-50, 100, 100);
+
+}
+
+function clear_print() {
+// this will do one of two things, x clears the screen by resetting the background
+// p calls the routine saveme, which saves a copy of the screen
+  if (key == 'x' || key == 'X') {
+    drawBackground ();
+  } else if (key == 'p' || key == 'P') {
+     saveme();  // call saveme which saves an image of the screen
+  }
+}
+
+function saveme(){
+    //this will save the name as the intials, date, time and a millis counting number.
+    // it will always be larger in value then the last one.
+  filename=initials+day() + hour() + minute() +second();
+  if (second()!=lastscreenshot) { // don't take a screenshot if you just took one
+    saveCanvas(filename, 'jpg');
+    key="";
+  }
+  lastscreenshot=second(); // set this to the current second so no more than one per second
+  
+}
