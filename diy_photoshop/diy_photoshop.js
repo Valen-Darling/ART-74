@@ -4,7 +4,7 @@ var choice = '1'; // starting choice, so it is not empty
 var lastscreenshot=61; // last screenshot never taken
 
 function preload() {
-  img = loadImage ('bubble_wand.png');
+  img = loadImage ('https://raw.githubusercontent.com/Valen-Darling/ART-74/main/photoshop/bubble_wand.png');
 }
 
 
