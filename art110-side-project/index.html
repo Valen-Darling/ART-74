@@ -14,5 +14,178 @@
             <p></p>
             <p></p>
             <p> (ChatGPT was used to assist with coding the colors)</p>
+<p></p>
+<p></p>
+<pre>
+let cols = 20;
+let rows = 20;
+let size = 30;
 
+let ripples = [];
+
+function setup() {
+  createCanvas(600, 600);
+  stroke(0);
+  strokeWeight(2);
+}
+
+function draw() {
+  background(20);
+
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      let x = i * size;
+      let y = j * size;
+      let cx = x + size / 2;
+      let cy = y + size / 2;
+
+      let tileColor = color(35);
+
+      for (let r = 0; r < ripples.length; r++) {
+        let ripple = ripples[r];
+        let t = millis() - ripple.startTime;
+        let waveFront = t * ripple.speed;
+
+     
+        tileColor = applyWaveColor(
+          cx, cy,
+          ripple.x, ripple.y,
+          waveFront,
+          ripple.color1, ripple.color2,
+          tileColor
+        );
+
+       
+        tileColor = applyWaveColor(
+          cx, cy,
+          -ripple.x, ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+       
+        tileColor = applyWaveColor(
+          cx, cy,
+          2 * width - ripple.x, ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+      
+        tileColor = applyWaveColor(
+          cx, cy,
+          ripple.x, -ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+       
+        tileColor = applyWaveColor(
+          cx, cy,
+          ripple.x, 2 * height - ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+      
+        tileColor = applyWaveColor(
+          cx, cy,
+          -ripple.x, -ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+        tileColor = applyWaveColor(
+          cx, cy,
+          2 * width - ripple.x, -ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+        tileColor = applyWaveColor(
+          cx, cy,
+          -ripple.x, 2 * height - ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+
+        tileColor = applyWaveColor(
+          cx, cy,
+          2 * width - ripple.x, 2 * height - ripple.y,
+          waveFront,
+          ripple.reboundColor1, ripple.reboundColor2,
+          tileColor
+        );
+      }
+
+      fill(tileColor);
+      rect(x, y, size, size);
+    }
+  }
+
+  
+  for (let i = ripples.length - 1; i >= 0; i--) {
+    let ripple = ripples[i];
+    let t = millis() - ripple.startTime;
+    let waveFront = t * ripple.speed;
+
+    if (waveFront > dist(0, 0, width * 2, height * 2)) {
+      ripples.splice(i, 1);
+    }
+  }
+}
+
+//AI Assistance//
+function applyWaveColor(cx, cy, sx, sy, waveFront, c1, c2, currentColor) {
+  let d = dist(cx, cy, sx, sy);
+  let ringDist = abs(d - waveFront);
+
+  if (ringDist < 10) {
+    return c1;
+  } else if (ringDist < 20) {
+    return c2;
+  }
+
+  return currentColor;
+}
+
+function mousePressed() {
+  let i = floor(mouseX / size);
+  let j = floor(mouseY / size);
+
+  let centerX = i * size + size / 2;
+  let centerY = j * size + size / 2;
+
+  ripples.push({
+    x: centerX,
+    y: centerY,
+    startTime: millis(),
+    speed: 0.2,
+    color1: randomPaletteColor(),
+    color2: randomPaletteColor(),
+    reboundColor1: randomPaletteColor(),
+    reboundColor2: randomPaletteColor()
+  });
+}
+
+function randomPaletteColor() {
+  let palette = [
+    color(0, 200, 255),
+    color(0, 255, 150),
+    color(255, 100, 200),
+    color(255, 180, 0),
+    color(180, 100, 255),
+    color(255, 80, 80)
+  ];
+
+  return random(palette);
+}
+</pre>
             
