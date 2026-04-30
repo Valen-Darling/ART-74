@@ -17,17 +17,17 @@ var chips;
 var endBg;
 
 function preload () {
-  titleScreen = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/title-page.png");
-  cursorImg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/pointer.png");
-  playButton = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/play-button.png");
-  introBg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/intro-page.png");
-  nextButton = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/next-button.png");
-  bobaImg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/boba.png");
-  firstSprite = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/page-2-sprite.png");
-  chocolate = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/chocolate.png");
-  secondSprite = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/page-3-sprite.png");
-  chips = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/doritos.png");
-  endBg= loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/end-page.png");
+  titleScreen = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/title-page.png");
+  cursorImg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/pointer.png");
+  playButton = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/play-button.png");
+  introBg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/intro-page.png");
+  nextButton = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/next-button.png");
+  bobaImg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/boba.png");
+  firstSprite = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/page-2-sprite.png");
+  chocolate = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/chocolate.png");
+  secondSprite = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/page-3-sprite.png");
+  chips = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/doritos.png");
+  endBg= loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_final/end-page.png");
 }
 
 function setup() {
