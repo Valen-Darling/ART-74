@@ -1,0 +1,256 @@
+var ballx = 300;
+var bally = 300;
+var ballSize = 40;
+var score =0;
+var gameState= "intro";
+
+var titleScreen;
+var cursorImg;
+var playButton;
+var introBg;
+var nextButton;
+var bobaImg;
+var firstSprite;
+var chocolate;
+var secondSprite;
+var chips;
+var endBg;
+
+function preload () {
+  titleScreen = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/title-page.png");
+  cursorImg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/pointer.png");
+  playButton = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/play-button.png");
+  introBg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/intro-page.png");
+  nextButton = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/next-button.png");
+  bobaImg = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/boba.png");
+  firstSprite = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/page-2-sprite.png");
+  chocolate = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/chocolate.png");
+  secondSprite = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/page-3-sprite.png");
+  chips = loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/doritos.png");
+  endBg= loadImage ("https://raw.githubusercontent.com/Valen-Darling/ART-74/main/game_lab/end-page.png");
+}
+
+function setup() {
+  createCanvas(600, 600);
+  textAlign(CENTER, CENTER);
+  textSize(20);
+  noCursor ();
+} // end setup
+
+
+function draw() {
+  background(252, 182, 252);
+  if (gameState=="intro"){
+  levelIntro();
+  }
+  
+  if (gameState=="story") {
+    introPage ();
+  }
+  
+  if (gameState=="L1"){
+  levelOne();
+  } 
+  
+  if (gameState=="level1done"){
+  levelOneDone();
+}
+
+  if (gameState=="L2"){
+   levelTwo(); 
+  }
+  if (gameState == "level2done") {
+  levelTwoDone();
+}
+  if (gameState=="L3"){
+   levelThree(); 
+  }
+  // "you won"
+    if (gameState=="win"){
+   levelWin(); 
+  }
+  
+  if (gameState=="L1" || gameState == "L2" || gameState == "L3"){
+  text(("Score: " + score), width/2, 40);
+  }
+  
+  image (cursorImg, mouseX-30, mouseY-10, 50,50);
+
+} // end draw
+
+function levelIntro() {
+ image(titleScreen, 0,0,width, height);
+ image (playButton, 200, 200,200,200);
+  }
+ 
+function introPage () {
+  image (introBg, 0, 0, width, height);
+  fill (0);
+  textSize (15);
+  text ("Your girlfriend is currently on her period and is craving something sweet...", width/2, 130);
+  text ("Could you fetch her some boba to make her feel better? ^^", width/2, 150);
+  image (nextButton, width/2-70, 170, 140, 140);
+}
+  
+
+
+function levelOne(){
+    let scale = 0.4;
+  let bobaW = bobaImg.width * scale;
+  let bobaH = bobaImg.height * scale;
+  let hitSize = max(bobaW, bobaH);
+
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+
+  if (distToBall < hitSize / 2) {
+    ballx = random(bobaW / 2, width - bobaW / 2);
+    bally = random(bobaH / 2, height - bobaH / 2);
+    score = score + 1;
+  }
+  if(score>6){
+ gameState= "level1done";
+  }
+  image(
+  bobaImg,
+  ballx - bobaW / 2,
+bally - bobaH / 2,
+  bobaImg.width * scale,
+  bobaImg.height * scale);
+  
+} // end level one
+
+function levelOneDone() {
+  background(150, 205, 250);
+  fill(0);
+  textSize(24);
+  text("Thank you for the boba!", width/2, 50);
+  text("...but now she's craving some chocolate", width/2, 80);
+  text ("Could you please get her those as well?", width/2, 119);
+  //next button
+  image (nextButton, width/2-70, 180, 140, 140);
+  //sprite
+  let spriteScale = 1;
+  let spriteW = firstSprite.width * spriteScale;
+  let spriteH = firstSprite.height * spriteScale;
+  let margin = 20;
+
+  image(firstSprite, width - spriteW - margin, height - spriteH - margin, spriteW, spriteH);
+}
+
+function levelTwo() {
+  background(247, 204, 255);
+
+  let scale = 0.4;
+  let chocolateW = chocolate.width * scale;
+  let chocolateH = chocolate.height * scale;
+  let hitSize = max(chocolateW, chocolateH);
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+
+  if (distToBall < hitSize / 2) {
+    ballx = random(chocolateW / 2, width - chocolateW / 2);
+    bally = random(chocolateH / 2, height - chocolateH / 2);
+    score = score + 1;
+  }
+
+  if (score > 10) {
+    gameState = "level2done";
+  }
+
+  image(
+    chocolate,
+    ballx - chocolateW / 2,
+    bally - chocolateH / 2,
+    chocolateW,
+    chocolateH
+  );
+}
+
+function levelTwoDone (){
+background (255, 230, 233);
+fill(0);
+  textSize(24);
+  text("Thank you! She really appreciates the chocolates!", width/2, 50);
+  textSize (15);
+  text("...ButNowSheWantsChipsCuzSheWantsSomethingSaltyNow", width/2, 90);
+  text ("...please?", width/2, 119);
+  //next button
+  image (nextButton, width/2-70, 140, 140, 140);
+    //sprite
+  let spriteScale = 2;
+  let spriteW = secondSprite.width * spriteScale;
+  let spriteH = secondSprite.height * spriteScale;
+
+  image(secondSprite, 0, height - spriteH, spriteW, spriteH);
+}
+
+function levelThree(){
+  let scale = 0.4;
+  let chipsW = chips.width * scale;
+  let chipsH = chips.height * scale;
+  let hitSize = max(chipsW, chipsH);
+
+  var distToBall = dist(ballx, bally, mouseX, mouseY);
+
+  if (distToBall < hitSize / 2) {
+    ballx = random(chipsW / 2, width - chipsW / 2);
+    bally = random(chipsH / 2, height - chipsH / 2);
+    score = score + 1;
+  }
+  if(score>15){
+gameState = "win";
+
+  }
+  image(chips, ballx - chipsW / 2,  bally - chipsH / 2, chipsW, chipsH);
+} 
+function levelWin(){
+  background(247, 171, 255);
+  image (endBg, 0, 0, width, height);
+  textSize (20);
+  text("You satisfied all her cravings! ^^", width/2, 160);
+
+}
+
+function mousePressed() {
+  if (gameState == "intro") {
+    if (
+      mouseX > 200 &&
+      mouseX < 400 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      gameState = "story";
+    }
+  } else if (gameState == "story") {
+  if (
+    mouseX > width/2 - 70 &&
+    mouseX < width/2 + 70 &&
+    mouseY > 170 &&
+    mouseY < 310
+  ) {
+    gameState = "L1";
+  }
+  }
+  else if (gameState == "level1done") {
+    if (
+      mouseX > width/2 - 70 &&
+      mouseX < width/2 + 70 &&
+      mouseY > 180 &&
+      mouseY < 320
+    ) {
+      gameState = "L2";
+    }
+  }
+  else if (gameState == "level2done") {
+  if (
+    mouseX > width/2 - 70 &&
+    mouseX < width/2 + 70 &&
+    mouseY > 140 &&
+    mouseY < 280
+  ) {
+    gameState = "L3";
+  }
+}
+
+  }
