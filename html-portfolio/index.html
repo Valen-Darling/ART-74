@@ -16,6 +16,10 @@
       padding:0;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       background:black;
       color:white;
@@ -23,32 +27,30 @@
       min-height:100vh;
       overflow-x:hidden;
     }
-html{
-  scroll-behavior:smooth;
-}
 
-.top-nav{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-bottom:40px;
-}
+    .top-nav{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:40px;
+    }
 
-.top-nav a{
-  color:white;
-  text-decoration:none;
-  font-family:'Anton', sans-serif;
-  letter-spacing:1px;
-  border:1px solid rgba(255,255,255,0.4);
-  padding:10px 16px;
-  transition:0.3s ease;
-}
+    .top-nav a{
+      color:white;
+      text-decoration:none;
+      font-family:'Anton', sans-serif;
+      letter-spacing:1px;
+      border:1px solid rgba(255,255,255,0.4);
+      padding:10px 16px;
+      transition:0.3s ease;
+    }
 
-.top-nav a:hover{
-  background:rgba(255,255,255,0.15);
-  box-shadow:0 0 12px rgba(0,255,255,0.25);
-}
+    .top-nav a:hover{
+      background:rgba(255,255,255,0.15);
+      box-shadow:0 0 12px rgba(0,255,255,0.25);
+    }
+
     .page{
       display:flex;
       min-height:100vh;
@@ -271,28 +273,39 @@ html{
 <body>
 
   <div class="page">
+
     <div class="glitch-side">
       <div class="noise"></div>
     </div>
 
     <main class="content">
+
       <div class="line1">Step into my mind...</div>
+
       <div class="line2">Marie Pacis' Art Portfolio</div>
-      <div class="line3">An art student experimenting with different art forms, both digital and traditional.</div>
-<nav class="top-nav">
-  <a href="#glitch">GLITCH</a>
-  <a href="#meme">MEME MASHUP</a>
-  <a href="#netart">NET ART</a>
-</nav>
+
+      <div class="line3">
+        An art student experimenting with different art forms, both digital and traditional.
+      </div>
+
+      <nav class="top-nav">
+        <a href="#glitch">GLITCH</a>
+        <a href="#meme">MEME MASHUP</a>
+        <a href="#netart">NET ART</a>
+        <a href="#minecraft">MINECRAFT</a>
+        <a href="#print">3D PRINT</a>
+      </nav>
+
       <section class="artworks">
-       <div class="art-row left" id="glitch">
+
+        <div class="art-row left" id="glitch">
           <a href="glitch.html" class="art-link">
             <img src="../portfolio-images/glitch_page.png" alt="Glitch artwork preview" class="art-image">
           </a>
           <div class="art-label">GLITCH</div>
         </div>
 
-       <div class="art-row right" id="meme">
+        <div class="art-row right" id="meme">
           <a href="meme-mashup.html" class="art-link">
             <img src="../portfolio-images/meme_mashup_page.png" alt="Meme Mashup artwork preview" class="art-image">
           </a>
@@ -305,12 +318,29 @@ html{
           </a>
           <div class="art-label">NET ART</div>
         </div>
+
+        <div class="art-row right" id="minecraft">
+          <a href="minecraft.html" class="art-link">
+            <img src="../portfolio-images/minecraft_art.png" alt="Minecraft artwork preview" class="art-image">
+          </a>
+          <div class="art-label">MINECRAFT</div>
+        </div>
+
+        <div class="art-row left" id="print">
+          <a href="3d-print.html" class="art-link">
+            <img src="../portfolio-images/kirby_final_print.png" alt="3D print artwork preview" class="art-image">
+          </a>
+          <div class="art-label">3D PRINT</div>
+        </div>
+
       </section>
+
     </main>
 
     <div class="glitch-side">
       <div class="noise"></div>
     </div>
+
   </div>
 
 </body>
