@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+   body{
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,1) 100%),
+    url("../portfolio-images/Minecraft_base.png") center top / cover no-repeat;
+  color:white;
+  font-family:'Roboto', sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+    .page{
+      display:flex;
+      min-height:100vh;
+      width:100%;
+    }
+
+    .glitch-side{
+      width:18%;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(180deg,#050505 0%,#111 50%,#050505 100%);
+    }
+
+    .glitch-side::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.08) 0px,
+        rgba(255,255,255,0.08) 1px,
+        transparent 3px,
+        transparent 6px
+      );
+      animation:scanMove 8s linear infinite;
+      opacity:0.35;
+    }
+
+    .glitch-side::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        90deg,
+        rgba(255,0,100,0.12),
+        transparent 35%,
+        rgba(0,255,255,0.12) 70%,
+        transparent
+      );
+      animation:glitchShift 0.2s infinite steps(2);
+      opacity:0.75;
+    }
+
+    .noise{
+      position:absolute;
+      inset:0;
+      background-image:repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.03) 0px,
+        rgba(255,255,255,0.03) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      animation:flicker 0.15s infinite;
+      opacity:0.2;
+    }
+
+  .content{
+  width:64%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:60px 20px 100px;
+}
+
+    .title{
+      font-family:'Permanent Marker', cursive;
+      font-size:4rem;
+      font-style:italic;
+      text-align:center;
+      opacity:0;
+      animation:fadeIn 0.2s forwards;
+      text-shadow:0 0 10px rgba(255,255,255,0.15);
+      margin-bottom:30px;
+    }
+
+    .hero-caption{
+      max-width:700px;
+      padding:0 20px;
+      font-size:1rem;
+      line-height:1.8;
+      color:#e5e5e5;
+      opacity:0;
+      animation:fadeIn 0.2s forwards;
+      text-shadow:0 0 8px rgba(0,0,0,0.45);
+      margin-bottom:30px;
+    }
+
+    .back-link{
+      opacity:0;
+      animation:fadeIn 0.2s forwards;
+      margin-bottom:70px;
+    }
+
+    .back-link a{
+      color:white;
+      text-decoration:none;
+      font-size:1rem;
+      border:1px solid rgba(255,255,255,0.5);
+      padding:10px 18px;
+      display:inline-block;
+      transition:0.3s ease;
+      background:rgba(0,0,0,0.25);
+    }
+
+    .back-link a:hover{
+      background:rgba(255,255,255,0.12);
+      box-shadow:0 0 12px rgba(255,255,255,0.2);
+    }
+
+    .art-section{
+      width:100%;
+      max-width:1000px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:25px;
+      opacity:0;
+      transform:translateY(25px);
+      animation:fadeUp 0.2s forwards;
+    }
+
+    .art-image{
+      width:600px;
+      max-width:100%;
+      height:auto;
+      display:block;
+      border:2px solid rgba(255,255,255,0.12);
+      box-shadow:0 0 18px rgba(255,255,255,0.08);
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(25px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes scanMove{
+      from{transform:translateY(-120px);}
+      to{transform:translateY(120px);}
+    }
+
+    @keyframes glitchShift{
+      0%{transform:translate(0,0);}
+      25%{transform:translate(2px,-1px);}
+      50%{transform:translate(-2px,1px);}
+      75%{transform:translate(1px,2px);}
+      100%{transform:translate(0,0);}
+    }
+
+    @keyframes flicker{
+      0%{opacity:0.15;}
+      50%{opacity:0.28;}
+      100%{opacity:0.18;}
+    }
+
+    @media (max-width:900px){
+      .glitch-side{
+        display:none;
+      }
+
+      .content{
+        width:100%;
+        padding:60px 20px 80px;
+      }
+
+      .title{
+        font-size:2.8rem;
+      }
+
+      .hero-caption{
+        font-size:0.95rem;
+        max-width:90%;
+      }
+
+      .art-image{
+        width:280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="glitch-side">
+      <div class="noise"></div>
+    </div>
+
+    <main class="content">
+      <h1 class="title">Minecraft</h1>
+
+      <div class="hero-caption">
+        When my professor said that we were going to have a Minecraft server that we were gonna play in class, it made me so happy since it was my favorite game since childhood (and I haven't played the game in forever :")). Below is the Kirby I built for the 3D print assignment.
+      </div>
+
+      <div class="back-link">
+        <a href="index.html">Back to Main Page</a>
+      </div>
+
+      <section class="art-section">
+        <img src="../portfolio-images/minecraft_art.png" alt="Minecraft Kirby build" class="art-image">
+      </section>
+    </main>
+
+    <div class="glitch-side">
+      <div class="noise"></div>
+    </div>
+  </div>
+
+</body>
+</html>
